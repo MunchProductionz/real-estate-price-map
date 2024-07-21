@@ -1,21 +1,12 @@
-import ModeToggle from '@/components/ModeToggle';
-import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import Filters from '@/components/Filters';
 import Map from '@/components/Map';
+import { MapProvider } from '@/services/MapContext';
 
 export default function App() {
-  // const { data } = useQuery({
-  //   queryKey: ['dummy_data.json'],
-  // });
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
-
   return (
-    <div className='m-8'>
-      <ModeToggle />
+    <MapProvider>
+      <Filters />
       <Map />
-    </div>
+    </MapProvider>
   );
 }
