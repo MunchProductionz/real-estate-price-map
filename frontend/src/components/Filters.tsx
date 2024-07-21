@@ -20,7 +20,7 @@ export default function Filters() {
       <div className='flex w-2/6 flex-col gap-2'>
         <div>
           <Label className='ml-2'>Lønn</Label>
-          <Label className='ml-2'>{income}</Label>
+          <Label className='ml-2'>{income.toLocaleString()}</Label>
         </div>
         <Slider defaultValue={[400000]} max={2000000} step={50000} onValueChange={(e) => setIncome(e[0])} />
         {/* <Input
