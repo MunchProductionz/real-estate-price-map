@@ -1,85 +1,76 @@
+import { useMap } from '@/services/MapContext';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
 
-const containerStyle = {
-  width: '100%',
-  height: '100vh',
-};
-
-const center = {
-  lat: 59.9,
-  lng: 10.7,
-};
-
-const mapId = '42cab03dda42e877';
-
-const ZOOM_THRESHOLD = 13; // Minimum zoom level to show labels
+const ZOOM_THRESHOLD = 15; // Minimum zoom level to show labels
 
 export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const { maxPrice } = useMap();
 
   const { data: geoJsonData } = useQuery<any>({
-    queryKey: ['postcodes.geojson'],
+    queryKey: ['postcodes.json'],
   });
 
   useEffect(() => {
-    if (mapRef.current && geoJsonData) {
+    if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
-        mapRef.current!.data.addGeoJson(geoJsonData);
-        mapRef.current!.data.setStyle((feature) => {
-          const postnummer = feature.getProperty('postnummer') as string;
-
-          // Set color for specific postnummer
-          if (postnummer === '0493') {
-            return {
-              fillColor: 'red',
-              fillOpacity: 0.5,
-              strokeColor: 'red',
-              strokeWeight: 1,
-            };
-          } else {
-            return {
-              fillColor: 'black',
-              fillOpacity: 0.05,
-              strokeColor: 'black',
-              strokeWeight: 0.5,
-            };
-          }
-        });
-
-        // Create markers for labels
-        const newMarkers: google.maps.Marker[] = [];
-        mapRef.current!.data.forEach((feature) => {
-          const bounds = new google.maps.LatLngBounds();
-          feature.getGeometry()?.forEachLatLng((latLng: google.maps.LatLng) => {
-            bounds.extend(latLng);
-          });
-          const center = bounds.getCenter();
-          const postnummer = feature.getProperty('postnummer') as string;
-          const marker = new google.maps.Marker({
-            position: center,
-            map: mapRef.current,
-            label: {
-              text: postnummer,
-              color: 'black',
-              fontSize: '14px',
-              fontWeight: 'bold',
-            },
-            icon: 'http://maps.google.com/mapfiles/ms/micons/blank.png', // Blank icon to avoid default markers
-            visible: false, // Initially set markers to not visible
+        setTimeout(() => {
+          mapRef.current!.data.addGeoJson(geoJsonData);
+          mapRef.current!.data.setStyle((feature) => {
+            const averagePrice = feature.getProperty('averagePrice') as number;
+            if (maxPrice > averagePrice) {
+              return {
+                fillColor: 'blue',
+                fillOpacity: 0.02,
+                strokeColor: 'blue',
+                strokeWeight: 1,
+              };
+            } else {
+              return {
+                fillColor: 'black',
+                fillOpacity: 0.01,
+                strokeColor: 'black',
+                strokeWeight: 0.2,
+              };
+            }
           });
 
-          newMarkers.push(marker);
-        });
+          // Create markers for labels
+          const newMarkers: google.maps.Marker[] = [];
+          mapRef.current!.data.forEach((feature) => {
+            const bounds = new google.maps.LatLngBounds();
+            feature.getGeometry()?.forEachLatLng((latLng: google.maps.LatLng) => {
+              bounds.extend(latLng);
+            });
+            const center = bounds.getCenter();
+            const postnummer = feature.getProperty('postnummer') as string;
+            const marker = new google.maps.Marker({
+              position: center,
+              map: mapRef.current,
+              label: {
+                text: postnummer,
+                color: 'black',
+                fontSize: '14px',
+                fontWeight: 'bold',
+              },
+              icon: 'http://maps.google.com/mapfiles/ms/micons/blank.png', // Blank icon to avoid default markers
+              visible: false, // Initially set markers to not visible
+            });
 
-        setMarkers(newMarkers);
+            newMarkers.push(marker);
+          });
+
+          setMarkers(newMarkers);
+        }, 500); // Adjust the delay time as needed
       } catch (error) {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData]);
+  }, [geoJsonData, isMapLoaded, maxPrice]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -129,20 +120,27 @@ export default function MapComponent() {
   }, [markers]);
 
   return (
-    // TODO FJERN API KEY
-    <LoadScript googleMapsApiKey='AIzaSyCuw3sAYkROG9ZrfRpPXRfqoldyXqVeoCU'>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={11}
-        options={{ mapId }}
-        onLoad={(map) => {
-          mapRef.current = map;
-          console.log('Map loaded');
-        }}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-      </GoogleMap>
-    </LoadScript>
+    <div className='m-4'>
+      <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+        <GoogleMap
+          mapContainerStyle={{
+            width: '100%',
+            height: '85vh',
+          }}
+          center={{
+            lat: 59.93,
+            lng: 10.75,
+          }}
+          zoom={11}
+          options={{ mapId: import.meta.env.VITE_GOOGLE_MAP_ID }}
+          onLoad={(map) => {
+            mapRef.current = map;
+            setIsMapLoaded(true);
+          }}
+        >
+          {/* Child components, such as markers, info windows, etc. */}
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 }
