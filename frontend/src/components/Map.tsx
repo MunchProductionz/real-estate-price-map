@@ -28,11 +28,25 @@ export default function MapComponent() {
     if (mapRef.current && geoJsonData) {
       try {
         mapRef.current!.data.addGeoJson(geoJsonData);
-        mapRef.current!.data.setStyle({
-          fillColor: 'black',
-          fillOpacity: 0.05,
-          strokeColor: 'black',
-          strokeWeight: 0.5,
+        mapRef.current!.data.setStyle((feature) => {
+          const postnummer = feature.getProperty('postnummer') as string;
+
+          // Set color for specific postnummer
+          if (postnummer === '0493') {
+            return {
+              fillColor: 'red',
+              fillOpacity: 0.5,
+              strokeColor: 'red',
+              strokeWeight: 1,
+            };
+          } else {
+            return {
+              fillColor: 'black',
+              fillOpacity: 0.05,
+              strokeColor: 'black',
+              strokeWeight: 0.5,
+            };
+          }
         });
 
         // Create markers for labels
@@ -44,7 +58,6 @@ export default function MapComponent() {
           });
           const center = bounds.getCenter();
           const postnummer = feature.getProperty('postnummer') as string;
-
           const marker = new google.maps.Marker({
             position: center,
             map: mapRef.current,
@@ -116,7 +129,8 @@ export default function MapComponent() {
   }, [markers]);
 
   return (
-    <LoadScript googleMapsApiKey='AIzaSyBTtRSxC4endO-vpel6LKkHzDAGt4F1oN8'>
+    // TODO FJERN API KEY
+    <LoadScript googleMapsApiKey='AIzaSyCuw3sAYkROG9ZrfRpPXRfqoldyXqVeoCU'>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
