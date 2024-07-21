@@ -1,3 +1,4 @@
+import { useMap } from '@/services/MapContext';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
@@ -8,6 +9,7 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const { maxPrice } = useMap();
 
   const { data: geoJsonData } = useQuery<any>({
     queryKey: ['postcodes.json'],
@@ -19,20 +21,20 @@ export default function MapComponent() {
         setTimeout(() => {
           mapRef.current!.data.addGeoJson(geoJsonData);
           mapRef.current!.data.setStyle((feature) => {
-            const postnummer = feature.getProperty('postnummer') as string;
-            if (postnummer === '0493') {
+            const averagePrice = feature.getProperty('averagePrice') as number;
+            if (maxPrice > averagePrice) {
               return {
-                fillColor: 'red',
-                fillOpacity: 0.05,
-                strokeColor: 'red',
+                fillColor: 'blue',
+                fillOpacity: 0.02,
+                strokeColor: 'blue',
                 strokeWeight: 1,
               };
             } else {
               return {
                 fillColor: 'black',
-                fillOpacity: 0.05,
+                fillOpacity: 0.01,
                 strokeColor: 'black',
-                strokeWeight: 0.5,
+                strokeWeight: 0.2,
               };
             }
           });
@@ -68,7 +70,7 @@ export default function MapComponent() {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded]);
+  }, [geoJsonData, isMapLoaded, maxPrice]);
 
   useEffect(() => {
     const map = mapRef.current;

@@ -20,7 +20,6 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMaxPrice(equity + income * 5 - debt);
-    console.log('Max price:', maxPrice);
   }, [equity, income, debt]);
 
   return (
