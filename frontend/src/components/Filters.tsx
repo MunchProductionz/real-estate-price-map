@@ -23,12 +23,6 @@ export default function Filters() {
           <Label className='ml-2'>{income.toLocaleString()}</Label>
         </div>
         <Slider defaultValue={[400000]} max={2000000} step={50000} onValueChange={(e) => setIncome(e[0])} />
-        {/* <Input
-          type='number<Slider defaultValue={[33]} max={100} step={1} />'
-          placeholder='Lønn'
-          value={debt}
-          onChange={(e) => setDebt(parseInt(e.target.value))}
-        /> */}
       </div>
       <div className='flex flex-col gap-2'>
         <Label className='ml-2'>Gjeld</Label>

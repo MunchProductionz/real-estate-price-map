@@ -4,6 +4,7 @@ export type MapContextType = {
   equity: number;
   debt: number;
   income: number;
+  maxPrice: number;
   setEquity: Dispatch<SetStateAction<number>>;
   setDebt: Dispatch<SetStateAction<number>>;
   setIncome: Dispatch<SetStateAction<number>>;
@@ -15,12 +16,20 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
   const [equity, setEquity] = useState(0);
   const [income, setIncome] = useState(400000);
   const [debt, setDebt] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
+
+  useEffect(() => {
+    setMaxPrice(equity + income * 5 - debt);
+    console.log('Max price:', maxPrice);
+  }, [equity, income, debt]);
+
   return (
     <MapContext.Provider
       value={{
         equity,
         debt,
         income,
+        maxPrice,
         setEquity,
         setDebt,
         setIncome,
