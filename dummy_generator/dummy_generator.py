@@ -12,8 +12,8 @@ class DummyGenerator:
         self.generator_settings = {
             "last_updated_min_date": datetime.strptime("2023-01-01", "%Y-%m-%d"),
             "last_updated_max_date": datetime.now(),
-            "post_code_min": 7010,
-            "post_code_max": 7068,
+            "post_code_min": 0,                         # Oslo min: 0010,   Trondheim min: 7010
+            "post_code_max": 1300,                       # Oslo max: 0582,   Trondheim max: 7068
             "average_price_min": 2000000,               # 2 million
             "average_price_max": 10000000,              # 10 million
         }
@@ -77,8 +77,7 @@ class DummyGenerator:
         
         # Raise exception if invalid
         if is_valid == False:
-            print("Yo")             # TODO: Fix so it crashes
-            Exception(f"Invalid number of records: {self.number_of_records}, must be less than or equal to {number_of_valid_records}")
+            raise Exception(f"Invalid number of records: {self.number_of_records}, must be less than or equal to {number_of_valid_records}")
 
         return None
 
@@ -102,14 +101,13 @@ class DummyGenerator:
         number_of_dates = (last_updated_max_date - last_updated_min_date).days
         
         # Generate all dates within range
-        dates_within_range = [last_updated_min_date + timedelta(days=days_since_last_updated_min_date) for days_since_last_updated_min_date in range(number_of_dates)]
-        
-        # Generate and shuffle indices
-        indices = list(range((last_updated_max_date - last_updated_min_date).days))
-        random.shuffle(indices)
+        dates_within_range = []
+        for days_since_last_updated_min_date in range(number_of_dates):
+            date = last_updated_min_date + timedelta(days=days_since_last_updated_min_date)
+            dates_within_range.append(date)
         
         # Get random date
-        last_updated_dates = [dates_within_range[index] for index in indices[:self.number_of_records]]
+        last_updated_dates = [random.choice(dates_within_range) for _ in range(self.number_of_records)]
         
         return last_updated_dates
     
@@ -126,6 +124,9 @@ class DummyGenerator:
         # Get random post codes from shuffled list
         post_codes = post_codes_within_range[:self.number_of_records]
         
+        # Format post codes
+        post_codes = self.get_formatted_post_codes(post_codes)
+        
         return post_codes
     
     def get_valid_average_prices(self):
@@ -136,19 +137,27 @@ class DummyGenerator:
         
         # Generate all average prices within range and shuffle
         average_prices_within_range = list(range(average_price_min, average_price_max))
-        random.shuffle(average_prices_within_range)
         
-        # Get random average prices from shuffled list
-        average_prices = average_prices_within_range[:self.number_of_records]
+        # Get random average prices from list
+        average_prices = [random.choice(average_prices_within_range) for _ in range(self.number_of_records)]
         
         return average_prices
 
+    def get_formatted_post_codes(self, post_codes: list):
+        
+        # Format post codes
+        formatted_post_codes = []
+        for post_code in post_codes:
+            formatted_post_code = str(post_code).zfill(4)       # Pad with zeros in the beginning
+            formatted_post_codes.append(formatted_post_code)
+        
+        return formatted_post_codes
 
 if __name__ == "__main__":
-    output_path = os.path.join(os.getcwd(), ".//frontend/src/lib/data/dummy_data.json")
+    output_path = os.path.join(os.getcwd(), "../frontend/public/data/dummy_data.json")
     
     dummy_generator = DummyGenerator(
         output_path=output_path,
-        number_of_records=100
+        number_of_records=1300
         )
     dummy_generator.generate_dummy_data()
