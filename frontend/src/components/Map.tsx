@@ -9,7 +9,7 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const { maxPrice } = useMap();
+  const { maxPrice, squareMeters } = useMap();
 
   const { data: geoJsonData } = useQuery<any>({
     queryKey: ['postcodes.json'],
@@ -21,7 +21,7 @@ export default function MapComponent() {
         setTimeout(() => {
           mapRef.current!.data.addGeoJson(geoJsonData);
           mapRef.current!.data.setStyle((feature) => {
-            const averagePrice = feature.getProperty('averagePrice') as number;
+            const averagePrice = feature.getProperty("averagePrice" + squareMeters + "m2") as number;
             if (maxPrice > averagePrice) {
               return {
                 fillColor: 'blue',
@@ -70,7 +70,7 @@ export default function MapComponent() {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice]);
+  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters]);
 
   useEffect(() => {
     const map = mapRef.current;
