@@ -5,7 +5,7 @@ import { Label } from './shadcn/ui/label';
 import { Slider } from './shadcn/ui/slider';
 
 export default function Filters() {
-  const { equity, debt, income, squareMeters, setEquity, setDebt, setIncome, setSquareMeters } = useMap();
+  const { equity, debt, income, extraLoan, squareMeters, setEquity, setDebt, setIncome, setExtraLoan, setSquareMeters } = useMap();
   return (
     <div className='m-4 flex justify-between'>
       <div className='flex flex-col gap-2'>
@@ -23,6 +23,10 @@ export default function Filters() {
           <Label className='ml-2'>{income.toLocaleString()}</Label>
         </div>
         <Slider defaultValue={[400000]} max={2000000} step={50000} onValueChange={(e) => setIncome(e[0])} />
+        <div>
+          <Label className='ml-2'>Ekstra lån</Label>
+          <Input type='number' placeholder='Ekstra lån' value={extraLoan} onChange={(e) => setExtraLoan(parseInt(e.target.value))} />
+        </div>
       </div>
       <div className='flex flex-col gap-2'>
         <Label className='ml-2'>Gjeld</Label>
