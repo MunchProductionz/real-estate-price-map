@@ -6,6 +6,7 @@ import { Slider } from './shadcn/ui/slider';
 
 export default function Filters() {
   const { equity, debt, income, extraLoan, squareMeters, setEquity, setDebt, setIncome, setExtraLoan, setSquareMeters } = useMap();
+  const maxPrice = equity + 5 * income - debt + extraLoan
   return (
     <div className='m-4 flex justify-between'>
       <div className='flex flex-col gap-2'>
@@ -29,8 +30,14 @@ export default function Filters() {
         </div>
       </div>
       <div className='flex flex-col gap-2'>
-        <Label className='ml-2'>Gjeld</Label>
-        <Input type='number' placeholder='Gjeld' value={debt} onChange={(e) => setDebt(parseInt(e.target.value))} />
+        <div>
+          <Label className='ml-2'>Gjeld</Label>
+          <Input type='number' placeholder='Gjeld' value={debt} onChange={(e) => setDebt(parseInt(e.target.value))} />
+        </div>
+        <div>
+          <Label className='ml-2'>Maksimal Kjøpssum</Label>
+          <Label className='ml-2'>{maxPrice.toLocaleString()}</Label> 
+        </div>
       </div>
       <div className='flex flex-col gap-2'>
         <div>
