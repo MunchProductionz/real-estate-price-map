@@ -22,13 +22,22 @@ export default function MapComponent() {
           mapRef.current!.data.addGeoJson(geoJsonData);
           mapRef.current!.data.setStyle((feature) => {
             const averagePrice = feature.getProperty("averagePrice" + squareMeters + "m2") as number;
-            if (maxPrice > averagePrice) {
-              return {
-                fillColor: 'blue',
-                fillOpacity: 0.02,
-                strokeColor: 'blue',
-                strokeWeight: 1,
-              };
+            if (maxPrice > averagePrice) {                // Affordability check
+              if (maxPrice > averagePrice * 1.2) {        // 20% buffer for high affordability (potential bidding war)
+                return {
+                  fillColor: 'blue',
+                  fillOpacity: 0.02,
+                  strokeColor: 'blue',
+                  strokeWeight: 1,
+                };
+              } else {
+                return {
+                  fillColor: 'yellow',
+                  fillOpacity: 0.02,
+                  strokeColor: 'yellow',
+                  strokeWeight: 1,
+                };
+              }
             } else {
               return {
                 fillColor: 'black',
