@@ -19,8 +19,16 @@ export default function MapComponent() {
     if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
         setTimeout(() => {
-          mapRef.current!.data.addGeoJson(geoJsonData);
-          mapRef.current!.data.setStyle((feature) => {
+
+          const map = mapRef.current!;
+          
+          // Clear existing data to avoid stacking styles
+          map.data.forEach(feature => {
+            map.data.remove(feature);
+          });
+
+          map.data.addGeoJson(geoJsonData);
+          map.data.setStyle((feature) => {
             const averagePrice = feature.getProperty("averagePrice" + squareMeters + "m2") as number;
             if (maxPrice > averagePrice) {                // Affordability check
               if (maxPrice > averagePrice * 1.2) {        // 20% buffer for high affordability (potential bidding war)
@@ -50,7 +58,7 @@ export default function MapComponent() {
 
           // Create markers for labels
           const newMarkers: google.maps.Marker[] = [];
-          mapRef.current!.data.forEach((feature) => {
+          map.data.forEach((feature) => {
             const bounds = new google.maps.LatLngBounds();
             feature.getGeometry()?.forEachLatLng((latLng: google.maps.LatLng) => {
               bounds.extend(latLng);
