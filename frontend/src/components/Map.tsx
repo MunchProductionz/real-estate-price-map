@@ -33,25 +33,25 @@ export default function MapComponent() {
             if (maxPrice > averagePrice) {                // Affordability check
               if (maxPrice > averagePrice * 1.2) {        // 20% buffer for high affordability (potential bidding war)
                 return {
-                  fillColor: 'blue',
-                  fillOpacity: 0.02,
-                  strokeColor: 'blue',
-                  strokeWeight: 1,
+                  fillColor: 'RoyalBlue',             // #4169E1
+                  fillOpacity: 0.3,
+                  strokeColor: 'MidnightBlue',        // #191970 
+                  strokeWeight: 0.1,
                 };
               } else {
                 return {
-                  fillColor: 'yellow',
-                  fillOpacity: 0.02,
-                  strokeColor: 'yellow',
-                  strokeWeight: 1,
+                  fillColor: 'Salmon',               // #FA8072    
+                  fillOpacity: 0.3,
+                  strokeColor: 'Maroon',             // #800000
+                  strokeWeight: 0.1,
                 };
               }
             } else {
               return {
-                fillColor: 'black',
-                fillOpacity: 0.01,
-                strokeColor: 'black',
-                strokeWeight: 0.2,
+                fillColor: 'black',                 // #000000
+                fillOpacity: 0.5 ,
+                strokeColor: 'black',               // #000000
+                strokeWeight: 0.1,
               };
             }
           });
