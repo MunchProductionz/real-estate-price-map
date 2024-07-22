@@ -9,7 +9,7 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const { maxPrice } = useMap();
+  const { maxPrice, squareMeters } = useMap();
 
   const { data: geoJsonData } = useQuery<any>({
     queryKey: ['postcodes.json'],
@@ -19,29 +19,46 @@ export default function MapComponent() {
     if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
         setTimeout(() => {
-          mapRef.current!.data.addGeoJson(geoJsonData);
-          mapRef.current!.data.setStyle((feature) => {
-            const averagePrice = feature.getProperty('averagePrice') as number;
-            if (maxPrice > averagePrice) {
-              return {
-                fillColor: 'blue',
-                fillOpacity: 0.02,
-                strokeColor: 'blue',
-                strokeWeight: 1,
-              };
+
+          const map = mapRef.current!;
+          
+          // Clear existing data to avoid stacking styles
+          map.data.forEach(feature => {
+            map.data.remove(feature);
+          });
+
+          map.data.addGeoJson(geoJsonData);
+          map.data.setStyle((feature) => {
+            const averagePrice = feature.getProperty("averagePrice" + squareMeters + "m2") as number;
+            if (maxPrice > averagePrice) {                // Affordability check
+              if (maxPrice > averagePrice * 1.2) {        // 20% buffer for high affordability (potential bidding war)
+                return {
+                  fillColor: 'RoyalBlue',             // #4169E1
+                  fillOpacity: 0.3,
+                  strokeColor: 'MidnightBlue',        // #191970 
+                  strokeWeight: 0.1,
+                };
+              } else {
+                return {
+                  fillColor: 'Salmon',               // #FA8072    
+                  fillOpacity: 0.3,
+                  strokeColor: 'Maroon',             // #800000
+                  strokeWeight: 0.1,
+                };
+              }
             } else {
               return {
-                fillColor: 'black',
-                fillOpacity: 0.01,
-                strokeColor: 'black',
-                strokeWeight: 0.2,
+                fillColor: 'black',                 // #000000
+                fillOpacity: 0.5 ,
+                strokeColor: 'black',               // #000000
+                strokeWeight: 0.1,
               };
             }
           });
 
           // Create markers for labels
           const newMarkers: google.maps.Marker[] = [];
-          mapRef.current!.data.forEach((feature) => {
+          map.data.forEach((feature) => {
             const bounds = new google.maps.LatLngBounds();
             feature.getGeometry()?.forEachLatLng((latLng: google.maps.LatLng) => {
               bounds.extend(latLng);
@@ -70,7 +87,7 @@ export default function MapComponent() {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice]);
+  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters]);
 
   useEffect(() => {
     const map = mapRef.current;
