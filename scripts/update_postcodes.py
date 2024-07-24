@@ -1,7 +1,7 @@
 import json
 import os
 from tqdm import tqdm
-from dummy_generator import DummyGenerator
+from scripts import DummyGenerator
 
 def update_postcodes():
     
