@@ -1,0 +1,262 @@
+{
+    "7030 Trondheim, Norway": {
+        "0274": {
+            "walking": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492813,
+                    "meters": 492813,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 402941,
+                    "seconds": 402941,
+                    "minutes": 6716,
+                    "hours": 111.93,
+                    "hours_and_minutes": [
+                        111,
+                        56
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 534890,
+                    "meters": 534890,
+                    "kilometers": 535
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103089,
+                    "seconds": 103089,
+                    "minutes": 1719,
+                    "hours": 28.64,
+                    "hours_and_minutes": [
+                        28,
+                        39
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "533 km",
+                    "value": 533434,
+                    "meters": 533434,
+                    "kilometers": 534
+                },
+                "duration": {
+                    "text": "7 hours 18 mins",
+                    "value": 26255,
+                    "seconds": 26255,
+                    "minutes": 438,
+                    "hours": 7.29,
+                    "hours_and_minutes": [
+                        7,
+                        18
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 499244,
+                    "meters": 499244,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "6 hours 18 mins",
+                    "value": 22705,
+                    "seconds": 22705,
+                    "minutes": 379,
+                    "hours": 6.31,
+                    "hours_and_minutes": [
+                        6,
+                        19
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 6 mins",
+                    "value": 21971
+                },
+                "status": "OK"
+            }
+        },
+        "0752": {
+            "walking": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489669,
+                    "meters": 489669,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 399803,
+                    "seconds": 399803,
+                    "minutes": 6664,
+                    "hours": 111.06,
+                    "hours_and_minutes": [
+                        111,
+                        4
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "539 km",
+                    "value": 538719,
+                    "meters": 538719,
+                    "kilometers": 539
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103710,
+                    "seconds": 103710,
+                    "minutes": 1729,
+                    "hours": 28.81,
+                    "hours_and_minutes": [
+                        28,
+                        49
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 497775,
+                    "meters": 497775,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "7 hours 56 mins",
+                    "value": 28572,
+                    "seconds": 28572,
+                    "minutes": 477,
+                    "hours": 7.94,
+                    "hours_and_minutes": [
+                        7,
+                        57
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498195,
+                    "meters": 498195,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "6 hours 20 mins",
+                    "value": 22795,
+                    "seconds": 22795,
+                    "minutes": 380,
+                    "hours": 6.33,
+                    "hours_and_minutes": [
+                        6,
+                        20
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 7 mins",
+                    "value": 22007
+                },
+                "status": "OK"
+            }
+        },
+        "1068": {
+            "walking": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 490729,
+                    "meters": 490729,
+                    "kilometers": 491
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 398995,
+                    "seconds": 398995,
+                    "minutes": 6650,
+                    "hours": 110.83,
+                    "hours_and_minutes": [
+                        110,
+                        50
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "524 km",
+                    "value": 524114,
+                    "meters": 524114,
+                    "kilometers": 525
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 100235,
+                    "seconds": 100235,
+                    "minutes": 1671,
+                    "hours": 27.84,
+                    "hours_and_minutes": [
+                        27,
+                        51
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "538 km",
+                    "value": 538296,
+                    "meters": 538296,
+                    "kilometers": 539
+                },
+                "duration": {
+                    "text": "7 hours 33 mins",
+                    "value": 27203,
+                    "seconds": 27203,
+                    "minutes": 454,
+                    "hours": 7.56,
+                    "hours_and_minutes": [
+                        7,
+                        34
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "483 km",
+                    "value": 483129,
+                    "meters": 483129,
+                    "kilometers": 484
+                },
+                "duration": {
+                    "text": "6 hours 3 mins",
+                    "value": 21808,
+                    "seconds": 21808,
+                    "minutes": 364,
+                    "hours": 6.06,
+                    "hours_and_minutes": [
+                        6,
+                        4
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "5 hours 51 mins",
+                    "value": 21045
+                },
+                "status": "OK"
+            }
+        }
+    }
+}
