@@ -397,6 +397,75 @@
                 },
                 "status": "OK"
             }
+        },
+        "1068": {
+            "walking": {
+                "distance": {
+                    "text": "496 km",
+                    "value": 496193,
+                    "meters": 496193,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403565,
+                    "seconds": 403565,
+                    "minutes": 6727,
+                    "hours": 112.1,
+                    "hours_and_minutes": [
+                        112,
+                        7
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 530038,
+                    "meters": 530038,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101419,
+                    "seconds": 101419,
+                    "minutes": 1691,
+                    "hours": 28.17,
+                    "hours_and_minutes": [
+                        28,
+                        11
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 490977,
+                    "meters": 490977,
+                    "kilometers": 491
+                },
+                "duration": {
+                    "text": "6 hours 14 mins",
+                    "value": 22415,
+                    "seconds": 22415,
+                    "minutes": 374,
+                    "hours": 6.23,
+                    "hours_and_minutes": [
+                        6,
+                        14
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 6 mins",
+                    "value": 21984
+                },
+                "status": "OK"
+            }
         }
     }
 }
