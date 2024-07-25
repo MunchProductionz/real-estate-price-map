@@ -258,5 +258,145 @@
                 "status": "OK"
             }
         }
+    },
+    "7010 Trondheim, Norway": {
+        "0274": {
+            "walking": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498278,
+                    "meters": 498278,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407508,
+                    "seconds": 407508,
+                    "minutes": 6792,
+                    "hours": 113.2,
+                    "hours_and_minutes": [
+                        113,
+                        12
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "541 km",
+                    "value": 540814,
+                    "meters": 540814,
+                    "kilometers": 541
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 104275,
+                    "seconds": 104275,
+                    "minutes": 1738,
+                    "hours": 28.97,
+                    "hours_and_minutes": [
+                        28,
+                        58
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "507 km",
+                    "value": 507096,
+                    "meters": 507096,
+                    "kilometers": 508
+                },
+                "duration": {
+                    "text": "6 hours 28 mins",
+                    "value": 23300,
+                    "seconds": 23300,
+                    "minutes": 389,
+                    "hours": 6.47,
+                    "hours_and_minutes": [
+                        6,
+                        29
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 22 mins",
+                    "value": 22906
+                },
+                "status": "OK"
+            }
+        },
+        "0752": {
+            "walking": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 495134,
+                    "meters": 495134,
+                    "kilometers": 496
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 404371,
+                    "seconds": 404371,
+                    "minutes": 6740,
+                    "hours": 112.33,
+                    "hours_and_minutes": [
+                        112,
+                        20
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "545 km",
+                    "value": 544643,
+                    "meters": 544643,
+                    "kilometers": 545
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 104896,
+                    "seconds": 104896,
+                    "minutes": 1749,
+                    "hours": 29.14,
+                    "hours_and_minutes": [
+                        29,
+                        9
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "506 km",
+                    "value": 506043,
+                    "meters": 506043,
+                    "kilometers": 507
+                },
+                "duration": {
+                    "text": "6 hours 30 mins",
+                    "value": 23389,
+                    "seconds": 23389,
+                    "minutes": 390,
+                    "hours": 6.5,
+                    "hours_and_minutes": [
+                        6,
+                        30
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 22 mins",
+                    "value": 22948
+                },
+                "status": "OK"
+            }
+        }
     }
 }
