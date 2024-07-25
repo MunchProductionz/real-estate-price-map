@@ -77,7 +77,7 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
             
             
             # Walking
-            if results_walking["rows"][origin_index]["elements"][destination_index]["status"] == "OK":
+            if results_walking["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
                 meters_walking = results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
                 kilometers_walking = math.ceil(results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
                 seconds_walking = results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
@@ -96,7 +96,7 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
             
             
             # Bicycling
-            if results_bicycling["rows"][origin_index]["elements"][destination_index]["status"] == "OK":
+            if results_bicycling["rows"][origin_index]["elements"][destination_index]["status"] == "OK":    # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
                 meters_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
                 kilometers_bicycling = math.ceil(results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
                 seconds_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
@@ -115,7 +115,7 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
             
             
             # Transit   -   TODO NOTE: Remember to check if the status is "OK" in frontend before displaying results
-            if results_transit["rows"][origin_index]["elements"][destination_index]["status"] == "OK":
+            if results_transit["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
                 meters_transit = results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
                 kilometers_transit = math.ceil(results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
                 seconds_transit = results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
@@ -134,7 +134,7 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
 
             
             # Driving
-            if results_driving["rows"][origin_index]["elements"][destination_index]["status"] == "OK":
+            if results_driving["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
                 meters_driving = results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
                 kilometers_driving = math.ceil(results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
                 seconds_driving = results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
