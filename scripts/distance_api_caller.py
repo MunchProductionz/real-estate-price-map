@@ -272,32 +272,22 @@ def store_results_destinations_postcodes(results_destinations_postcodes, output_
         file.write("\n")
     print(f"Stored results with {len(results_destinations_postcodes.keys())} keys to {output_path}")
     
-    
-# Main function
-def update_distances(destinations):
-    """Update JSON files with distances between postcodes and destinations.
+def get_and_append_results(gmaps, origins, destinations):
+    """Update JSON files with distances between postcodes and destinations for one batch.
 
     Args:
-        destinations (list): List of destinations. (ex. ["{postcode}, Norway", {coordinates}] etc.)
-
+        gmaps (googlemaps.Client): Google Maps API client.
+        origins (list): List of origins.
+        destinations (list): List of destinations.
+    
     Returns:
         None
     """
     
-    # Initialize Google Maps API client
-    gmaps = get_google_maps_client()
-    
-    # Get postcodes from GeoJSON
-    geojson_path = os.path.join(os.getcwd(), "../frontend/public/data/postcodes.json")
-    postcodes = get_postcodes_from_geojson(geojson_path)
-    
-    # Get origins and destinations
-    origins = [f"{postcode}, Norway" for postcode in postcodes]
-    
     # Get distance matrix results
     results_walking = get_distance_matrix(
         gmaps=gmaps,
-        origins=origins[:3],
+        origins=origins[:3],                    # TODO: Remove [:3] when ready
         destinations=destinations,
         mode="walking"
         )
@@ -342,7 +332,35 @@ def update_distances(destinations):
     store_results_postcodes_destinations(results_postcodes_destinations, output_path_postcodes_destinations)
     store_results_destinations_postcodes(results_destinations_postcodes, output_path_destinations_postcodes)
     
-    print("Done!")
+    return None
+    
+    
+# Main function
+def update_distances(destinations):
+    """Update JSON files with distances between postcodes and destinations.
+
+    Args:
+        destinations (list): List of destinations. (ex. ["{postcode}, Norway", {coordinates}] etc.)
+
+    Returns:
+        None
+    """
+    
+    # Initialize Google Maps API client
+    gmaps = get_google_maps_client()
+    
+    # Get postcodes from GeoJSON
+    geojson_path = os.path.join(os.getcwd(), "../frontend/public/data/postcodes.json")
+    postcodes = get_postcodes_from_geojson(geojson_path)
+    
+    # Get origins and destinations
+    origins = [f"{postcode}, Norway" for postcode in postcodes]
+    
+    # Get and append results to avoid exceeding Google Maps API rate limits
+    for i in range(0, len(origins[:3]), 25):                # TODO: Remove [:3] when ready
+        get_and_append_results(gmaps, origins[i:i+25], destinations)
+    
+    print(f"Done updating distances between {len(origins)} origins and {len(destinations)} destinations!")
     
     return None
 
