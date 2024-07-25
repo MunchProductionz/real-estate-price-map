@@ -469,5 +469,2517 @@
                 "status": "OK"
             }
         }
+    },
+    "0682": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "501 km",
+                    "value": 500565,
+                    "meters": 500565,
+                    "kilometers": 501
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407303,
+                    "seconds": 407303,
+                    "minutes": 6789,
+                    "hours": 113.14,
+                    "hours_and_minutes": [
+                        113,
+                        9
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 535178,
+                    "meters": 535178,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 102696,
+                    "seconds": 102696,
+                    "minutes": 1712,
+                    "hours": 28.53,
+                    "hours_and_minutes": [
+                        28,
+                        32
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 497131,
+                    "meters": 497131,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "6 hours 20 mins",
+                    "value": 22777,
+                    "seconds": 22777,
+                    "minutes": 380,
+                    "hours": 6.33,
+                    "hours_and_minutes": [
+                        6,
+                        20
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 17 mins",
+                    "value": 22611
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 495100,
+                    "meters": 495100,
+                    "kilometers": 496
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 402738,
+                    "seconds": 402738,
+                    "minutes": 6713,
+                    "hours": 111.87,
+                    "hours_and_minutes": [
+                        111,
+                        53
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "529 km",
+                    "value": 529254,
+                    "meters": 529254,
+                    "kilometers": 530
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101509,
+                    "seconds": 101509,
+                    "minutes": 1692,
+                    "hours": 28.2,
+                    "hours_and_minutes": [
+                        28,
+                        12
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 534884,
+                    "meters": 534884,
+                    "kilometers": 535
+                },
+                "duration": {
+                    "text": "7 hours 33 mins",
+                    "value": 27198,
+                    "seconds": 27198,
+                    "minutes": 454,
+                    "hours": 7.55,
+                    "hours_and_minutes": [
+                        7,
+                        34
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "489 km",
+                    "value": 489283,
+                    "meters": 489283,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "6 hours 11 mins",
+                    "value": 22274,
+                    "seconds": 22274,
+                    "minutes": 372,
+                    "hours": 6.19,
+                    "hours_and_minutes": [
+                        6,
+                        12
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 9 mins",
+                    "value": 22124
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0753": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 495164,
+                    "meters": 495164,
+                    "kilometers": 496
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 404433,
+                    "seconds": 404433,
+                    "minutes": 6741,
+                    "hours": 112.34,
+                    "hours_and_minutes": [
+                        112,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "545 km",
+                    "value": 544574,
+                    "meters": 544574,
+                    "kilometers": 545
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 104900,
+                    "seconds": 104900,
+                    "minutes": 1749,
+                    "hours": 29.14,
+                    "hours_and_minutes": [
+                        29,
+                        9
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "506 km",
+                    "value": 505975,
+                    "meters": 505975,
+                    "kilometers": 506
+                },
+                "duration": {
+                    "text": "6 hours 30 mins",
+                    "value": 23386,
+                    "seconds": 23386,
+                    "minutes": 390,
+                    "hours": 6.5,
+                    "hours_and_minutes": [
+                        6,
+                        30
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 28 mins",
+                    "value": 23272
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489700,
+                    "meters": 489700,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 399868,
+                    "seconds": 399868,
+                    "minutes": 6665,
+                    "hours": 111.07,
+                    "hours_and_minutes": [
+                        111,
+                        5
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "539 km",
+                    "value": 538650,
+                    "meters": 538650,
+                    "kilometers": 539
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103714,
+                    "seconds": 103714,
+                    "minutes": 1729,
+                    "hours": 28.81,
+                    "hours_and_minutes": [
+                        28,
+                        49
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "539 km",
+                    "value": 539484,
+                    "meters": 539484,
+                    "kilometers": 540
+                },
+                "duration": {
+                    "text": "7 hours 41 mins",
+                    "value": 27665,
+                    "seconds": 27665,
+                    "minutes": 462,
+                    "hours": 7.68,
+                    "hours_and_minutes": [
+                        7,
+                        42
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498127,
+                    "meters": 498127,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "6 hours 21 mins",
+                    "value": 22883,
+                    "seconds": 22883,
+                    "minutes": 382,
+                    "hours": 6.36,
+                    "hours_and_minutes": [
+                        6,
+                        22
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 20 mins",
+                    "value": 22783
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0262": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 499105,
+                    "meters": 499105,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 408221,
+                    "seconds": 408221,
+                    "minutes": 6804,
+                    "hours": 113.39,
+                    "hours_and_minutes": [
+                        113,
+                        24
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "541 km",
+                    "value": 540794,
+                    "meters": 540794,
+                    "kilometers": 541
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 104232,
+                    "seconds": 104232,
+                    "minutes": 1738,
+                    "hours": 28.95,
+                    "hours_and_minutes": [
+                        28,
+                        58
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "507 km",
+                    "value": 506507,
+                    "meters": 506507,
+                    "kilometers": 507
+                },
+                "duration": {
+                    "text": "6 hours 28 mins",
+                    "value": 23296,
+                    "seconds": 23296,
+                    "minutes": 389,
+                    "hours": 6.47,
+                    "hours_and_minutes": [
+                        6,
+                        29
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 27 mins",
+                    "value": 23210
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "494 km",
+                    "value": 493641,
+                    "meters": 493641,
+                    "kilometers": 494
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403657,
+                    "seconds": 403657,
+                    "minutes": 6728,
+                    "hours": 112.13,
+                    "hours_and_minutes": [
+                        112,
+                        8
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 534870,
+                    "meters": 534870,
+                    "kilometers": 535
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103046,
+                    "seconds": 103046,
+                    "minutes": 1718,
+                    "hours": 28.62,
+                    "hours_and_minutes": [
+                        28,
+                        38
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531459,
+                    "meters": 531459,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "7 hours 17 mins",
+                    "value": 26237,
+                    "seconds": 26237,
+                    "minutes": 438,
+                    "hours": 7.29,
+                    "hours_and_minutes": [
+                        7,
+                        18
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 498659,
+                    "meters": 498659,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "6 hours 20 mins",
+                    "value": 22794,
+                    "seconds": 22794,
+                    "minutes": 380,
+                    "hours": 6.33,
+                    "hours_and_minutes": [
+                        6,
+                        20
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 19 mins",
+                    "value": 22721
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0166": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 499103,
+                    "meters": 499103,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 408021,
+                    "seconds": 408021,
+                    "minutes": 6801,
+                    "hours": 113.34,
+                    "hours_and_minutes": [
+                        113,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "539 km",
+                    "value": 538764,
+                    "meters": 538764,
+                    "kilometers": 539
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103985,
+                    "seconds": 103985,
+                    "minutes": 1734,
+                    "hours": 28.88,
+                    "hours_and_minutes": [
+                        28,
+                        54
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "500 km",
+                    "value": 499737,
+                    "meters": 499737,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "6 hours 28 mins",
+                    "value": 23251,
+                    "seconds": 23251,
+                    "minutes": 388,
+                    "hours": 6.46,
+                    "hours_and_minutes": [
+                        6,
+                        28
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 24 mins",
+                    "value": 23011
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "494 km",
+                    "value": 493638,
+                    "meters": 493638,
+                    "kilometers": 494
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403456,
+                    "seconds": 403456,
+                    "minutes": 6725,
+                    "hours": 112.07,
+                    "hours_and_minutes": [
+                        112,
+                        5
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "533 km",
+                    "value": 532840,
+                    "meters": 532840,
+                    "kilometers": 533
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 102799,
+                    "seconds": 102799,
+                    "minutes": 1714,
+                    "hours": 28.56,
+                    "hours_and_minutes": [
+                        28,
+                        34
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 529869,
+                    "meters": 529869,
+                    "kilometers": 530
+                },
+                "duration": {
+                    "text": "7 hours 9 mins",
+                    "value": 25737,
+                    "seconds": 25737,
+                    "minutes": 429,
+                    "hours": 7.15,
+                    "hours_and_minutes": [
+                        7,
+                        9
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "492 km",
+                    "value": 491889,
+                    "meters": 491889,
+                    "kilometers": 492
+                },
+                "duration": {
+                    "text": "6 hours 19 mins",
+                    "value": 22748,
+                    "seconds": 22748,
+                    "minutes": 380,
+                    "hours": 6.32,
+                    "hours_and_minutes": [
+                        6,
+                        20
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 15 mins",
+                    "value": 22525
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0775": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 494968,
+                    "meters": 494968,
+                    "kilometers": 495
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 404455,
+                    "seconds": 404455,
+                    "minutes": 6741,
+                    "hours": 112.35,
+                    "hours_and_minutes": [
+                        112,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "542 km",
+                    "value": 541512,
+                    "meters": 541512,
+                    "kilometers": 542
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 104303,
+                    "seconds": 104303,
+                    "minutes": 1739,
+                    "hours": 28.97,
+                    "hours_and_minutes": [
+                        28,
+                        59
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "503 km",
+                    "value": 502824,
+                    "meters": 502824,
+                    "kilometers": 503
+                },
+                "duration": {
+                    "text": "6 hours 26 mins",
+                    "value": 23144,
+                    "seconds": 23144,
+                    "minutes": 386,
+                    "hours": 6.43,
+                    "hours_and_minutes": [
+                        6,
+                        26
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 24 mins",
+                    "value": 23038
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489504,
+                    "meters": 489504,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 399890,
+                    "seconds": 399890,
+                    "minutes": 6665,
+                    "hours": 111.08,
+                    "hours_and_minutes": [
+                        111,
+                        5
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 535588,
+                    "meters": 535588,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103117,
+                    "seconds": 103117,
+                    "minutes": 1719,
+                    "hours": 28.64,
+                    "hours_and_minutes": [
+                        28,
+                        39
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 535434,
+                    "meters": 535434,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "7 hours 32 mins",
+                    "value": 27105,
+                    "seconds": 27105,
+                    "minutes": 452,
+                    "hours": 7.53,
+                    "hours_and_minutes": [
+                        7,
+                        32
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 494976,
+                    "meters": 494976,
+                    "kilometers": 495
+                },
+                "duration": {
+                    "text": "6 hours 17 mins",
+                    "value": 22641,
+                    "seconds": 22641,
+                    "minutes": 378,
+                    "hours": 6.29,
+                    "hours_and_minutes": [
+                        6,
+                        18
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 16 mins",
+                    "value": 22550
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0357": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 497966,
+                    "meters": 497966,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407198,
+                    "seconds": 407198,
+                    "minutes": 6787,
+                    "hours": 113.11,
+                    "hours_and_minutes": [
+                        113,
+                        7
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "539 km",
+                    "value": 539355,
+                    "meters": 539355,
+                    "kilometers": 540
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103956,
+                    "seconds": 103956,
+                    "minutes": 1733,
+                    "hours": 28.88,
+                    "hours_and_minutes": [
+                        28,
+                        53
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "503 km",
+                    "value": 503275,
+                    "meters": 503275,
+                    "kilometers": 504
+                },
+                "duration": {
+                    "text": "6 hours 29 mins",
+                    "value": 23338,
+                    "seconds": 23338,
+                    "minutes": 389,
+                    "hours": 6.48,
+                    "hours_and_minutes": [
+                        6,
+                        29
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 27 mins",
+                    "value": 23208
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492502,
+                    "meters": 492502,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 402633,
+                    "seconds": 402633,
+                    "minutes": 6711,
+                    "hours": 111.84,
+                    "hours_and_minutes": [
+                        111,
+                        51
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "533 km",
+                    "value": 533431,
+                    "meters": 533431,
+                    "kilometers": 534
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 102770,
+                    "seconds": 102770,
+                    "minutes": 1713,
+                    "hours": 28.55,
+                    "hours_and_minutes": [
+                        28,
+                        33
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531243,
+                    "meters": 531243,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "7 hours 16 mins",
+                    "value": 26142,
+                    "seconds": 26142,
+                    "minutes": 436,
+                    "hours": 7.26,
+                    "hours_and_minutes": [
+                        7,
+                        16
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 495427,
+                    "meters": 495427,
+                    "kilometers": 496
+                },
+                "duration": {
+                    "text": "6 hours 21 mins",
+                    "value": 22836,
+                    "seconds": 22836,
+                    "minutes": 381,
+                    "hours": 6.34,
+                    "hours_and_minutes": [
+                        6,
+                        21
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 19 mins",
+                    "value": 22719
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0483": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496946,
+                    "meters": 496946,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 406064,
+                    "seconds": 406064,
+                    "minutes": 6768,
+                    "hours": 112.8,
+                    "hours_and_minutes": [
+                        112,
+                        48
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "535 km",
+                    "value": 535460,
+                    "meters": 535460,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 102900,
+                    "seconds": 102900,
+                    "minutes": 1715,
+                    "hours": 28.58,
+                    "hours_and_minutes": [
+                        28,
+                        35
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 497393,
+                    "meters": 497393,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "6 hours 20 mins",
+                    "value": 22822,
+                    "seconds": 22822,
+                    "minutes": 381,
+                    "hours": 6.34,
+                    "hours_and_minutes": [
+                        6,
+                        21
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 18 mins",
+                    "value": 22677
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 491482,
+                    "meters": 491482,
+                    "kilometers": 492
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 401499,
+                    "seconds": 401499,
+                    "minutes": 6692,
+                    "hours": 111.53,
+                    "hours_and_minutes": [
+                        111,
+                        32
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 529536,
+                    "meters": 529536,
+                    "kilometers": 530
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101714,
+                    "seconds": 101714,
+                    "minutes": 1696,
+                    "hours": 28.25,
+                    "hours_and_minutes": [
+                        28,
+                        16
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "533 km",
+                    "value": 532595,
+                    "meters": 532595,
+                    "kilometers": 533
+                },
+                "duration": {
+                    "text": "7 hours 22 mins",
+                    "value": 26523,
+                    "seconds": 26523,
+                    "minutes": 443,
+                    "hours": 7.37,
+                    "hours_and_minutes": [
+                        7,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489545,
+                    "meters": 489545,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "6 hours 12 mins",
+                    "value": 22319,
+                    "seconds": 22319,
+                    "minutes": 372,
+                    "hours": 6.2,
+                    "hours_and_minutes": [
+                        6,
+                        12
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 10 mins",
+                    "value": 22190
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0469": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496882,
+                    "meters": 496882,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 406055,
+                    "seconds": 406055,
+                    "minutes": 6768,
+                    "hours": 112.79,
+                    "hours_and_minutes": [
+                        112,
+                        48
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 535640,
+                    "meters": 535640,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 102962,
+                    "seconds": 102962,
+                    "minutes": 1717,
+                    "hours": 28.6,
+                    "hours_and_minutes": [
+                        28,
+                        37
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 497593,
+                    "meters": 497593,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "6 hours 22 mins",
+                    "value": 22915,
+                    "seconds": 22915,
+                    "minutes": 382,
+                    "hours": 6.37,
+                    "hours_and_minutes": [
+                        6,
+                        22
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 19 mins",
+                    "value": 22746
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 491418,
+                    "meters": 491418,
+                    "kilometers": 492
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 401490,
+                    "seconds": 401490,
+                    "minutes": 6692,
+                    "hours": 111.53,
+                    "hours_and_minutes": [
+                        111,
+                        32
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 529716,
+                    "meters": 529716,
+                    "kilometers": 530
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101776,
+                    "seconds": 101776,
+                    "minutes": 1697,
+                    "hours": 28.27,
+                    "hours_and_minutes": [
+                        28,
+                        17
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "533 km",
+                    "value": 533069,
+                    "meters": 533069,
+                    "kilometers": 534
+                },
+                "duration": {
+                    "text": "7 hours 23 mins",
+                    "value": 26558,
+                    "seconds": 26558,
+                    "minutes": 443,
+                    "hours": 7.38,
+                    "hours_and_minutes": [
+                        7,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489745,
+                    "meters": 489745,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "6 hours 14 mins",
+                    "value": 22412,
+                    "seconds": 22412,
+                    "minutes": 374,
+                    "hours": 6.23,
+                    "hours_and_minutes": [
+                        6,
+                        14
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 11 mins",
+                    "value": 22259
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0459": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498034,
+                    "meters": 498034,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407074,
+                    "seconds": 407074,
+                    "minutes": 6785,
+                    "hours": 113.08,
+                    "hours_and_minutes": [
+                        113,
+                        5
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 536496,
+                    "meters": 536496,
+                    "kilometers": 537
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103329,
+                    "seconds": 103329,
+                    "minutes": 1723,
+                    "hours": 28.7,
+                    "hours_and_minutes": [
+                        28,
+                        43
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498192,
+                    "meters": 498192,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "6 hours 23 mins",
+                    "value": 22988,
+                    "seconds": 22988,
+                    "minutes": 384,
+                    "hours": 6.39,
+                    "hours_and_minutes": [
+                        6,
+                        24
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 20 mins",
+                    "value": 22798
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492570,
+                    "meters": 492570,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 402509,
+                    "seconds": 402509,
+                    "minutes": 6709,
+                    "hours": 111.81,
+                    "hours_and_minutes": [
+                        111,
+                        49
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 530572,
+                    "meters": 530572,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102142,
+                    "seconds": 102142,
+                    "minutes": 1703,
+                    "hours": 28.37,
+                    "hours_and_minutes": [
+                        28,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531207,
+                    "meters": 531207,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "7 hours 17 mins",
+                    "value": 26198,
+                    "seconds": 26198,
+                    "minutes": 437,
+                    "hours": 7.28,
+                    "hours_and_minutes": [
+                        7,
+                        17
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 490344,
+                    "meters": 490344,
+                    "kilometers": 491
+                },
+                "duration": {
+                    "text": "6 hours 15 mins",
+                    "value": 22485,
+                    "seconds": 22485,
+                    "minutes": 375,
+                    "hours": 6.25,
+                    "hours_and_minutes": [
+                        6,
+                        15
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 12 mins",
+                    "value": 22310
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0594": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496938,
+                    "meters": 496938,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 404454,
+                    "seconds": 404454,
+                    "minutes": 6741,
+                    "hours": 112.35,
+                    "hours_and_minutes": [
+                        112,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531244,
+                    "meters": 531244,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101747,
+                    "seconds": 101747,
+                    "minutes": 1696,
+                    "hours": 28.26,
+                    "hours_and_minutes": [
+                        28,
+                        16
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492838,
+                    "meters": 492838,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "6 hours 17 mins",
+                    "value": 22632,
+                    "seconds": 22632,
+                    "minutes": 378,
+                    "hours": 6.29,
+                    "hours_and_minutes": [
+                        6,
+                        18
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 12 mins",
+                    "value": 22321
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 491473,
+                    "meters": 491473,
+                    "kilometers": 492
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 399889,
+                    "seconds": 399889,
+                    "minutes": 6665,
+                    "hours": 111.08,
+                    "hours_and_minutes": [
+                        111,
+                        5
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "525 km",
+                    "value": 525320,
+                    "meters": 525320,
+                    "kilometers": 526
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 100561,
+                    "seconds": 100561,
+                    "minutes": 1677,
+                    "hours": 27.93,
+                    "hours_and_minutes": [
+                        27,
+                        57
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 535796,
+                    "meters": 535796,
+                    "kilometers": 536
+                },
+                "duration": {
+                    "text": "7 hours 32 mins",
+                    "value": 27117,
+                    "seconds": 27117,
+                    "minutes": 452,
+                    "hours": 7.53,
+                    "hours_and_minutes": [
+                        7,
+                        32
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "485 km",
+                    "value": 484990,
+                    "meters": 484990,
+                    "kilometers": 485
+                },
+                "duration": {
+                    "text": "6 hours 9 mins",
+                    "value": 22130,
+                    "seconds": 22130,
+                    "minutes": 369,
+                    "hours": 6.15,
+                    "hours_and_minutes": [
+                        6,
+                        9
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 4 mins",
+                    "value": 21834
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0589": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498210,
+                    "meters": 498210,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 405490,
+                    "seconds": 405490,
+                    "minutes": 6759,
+                    "hours": 112.64,
+                    "hours_and_minutes": [
+                        112,
+                        39
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "532 km",
+                    "value": 532328,
+                    "meters": 532328,
+                    "kilometers": 533
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102041,
+                    "seconds": 102041,
+                    "minutes": 1701,
+                    "hours": 28.34,
+                    "hours_and_minutes": [
+                        28,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "494 km",
+                    "value": 494345,
+                    "meters": 494345,
+                    "kilometers": 495
+                },
+                "duration": {
+                    "text": "6 hours 20 mins",
+                    "value": 22806,
+                    "seconds": 22806,
+                    "minutes": 381,
+                    "hours": 6.33,
+                    "hours_and_minutes": [
+                        6,
+                        21
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 17 mins",
+                    "value": 22604
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492745,
+                    "meters": 492745,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 400925,
+                    "seconds": 400925,
+                    "minutes": 6683,
+                    "hours": 111.37,
+                    "hours_and_minutes": [
+                        111,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "526 km",
+                    "value": 526404,
+                    "meters": 526404,
+                    "kilometers": 527
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 100855,
+                    "seconds": 100855,
+                    "minutes": 1681,
+                    "hours": 28.02,
+                    "hours_and_minutes": [
+                        28,
+                        1
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "532 km",
+                    "value": 531844,
+                    "meters": 531844,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "7 hours 36 mins",
+                    "value": 27378,
+                    "seconds": 27378,
+                    "minutes": 457,
+                    "hours": 7.61,
+                    "hours_and_minutes": [
+                        7,
+                        37
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "486 km",
+                    "value": 486497,
+                    "meters": 486497,
+                    "kilometers": 487
+                },
+                "duration": {
+                    "text": "6 hours 12 mins",
+                    "value": 22303,
+                    "seconds": 22303,
+                    "minutes": 372,
+                    "hours": 6.2,
+                    "hours_and_minutes": [
+                        6,
+                        12
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 9 mins",
+                    "value": 22117
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0577": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "500 km",
+                    "value": 500255,
+                    "meters": 500255,
+                    "kilometers": 501
+                },
+                "duration": {
+                    "text": "4 days 18 hours",
+                    "value": 408981,
+                    "seconds": 408981,
+                    "minutes": 6817,
+                    "hours": 113.61,
+                    "hours_and_minutes": [
+                        113,
+                        37
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "537 km",
+                    "value": 537175,
+                    "meters": 537175,
+                    "kilometers": 538
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103490,
+                    "seconds": 103490,
+                    "minutes": 1725,
+                    "hours": 28.75,
+                    "hours_and_minutes": [
+                        28,
+                        45
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496608,
+                    "meters": 496608,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "6 hours 21 mins",
+                    "value": 22860,
+                    "seconds": 22860,
+                    "minutes": 381,
+                    "hours": 6.35,
+                    "hours_and_minutes": [
+                        6,
+                        21
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 18 mins",
+                    "value": 22672
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "495 km",
+                    "value": 494790,
+                    "meters": 494790,
+                    "kilometers": 495
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 404417,
+                    "seconds": 404417,
+                    "minutes": 6741,
+                    "hours": 112.34,
+                    "hours_and_minutes": [
+                        112,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531251,
+                    "meters": 531251,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102304,
+                    "seconds": 102304,
+                    "minutes": 1706,
+                    "hours": 28.42,
+                    "hours_and_minutes": [
+                        28,
+                        26
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 530397,
+                    "meters": 530397,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "7 hours 11 mins",
+                    "value": 25837,
+                    "seconds": 25837,
+                    "minutes": 431,
+                    "hours": 7.18,
+                    "hours_and_minutes": [
+                        7,
+                        11
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "489 km",
+                    "value": 488760,
+                    "meters": 488760,
+                    "kilometers": 489
+                },
+                "duration": {
+                    "text": "6 hours 13 mins",
+                    "value": 22357,
+                    "seconds": 22357,
+                    "minutes": 373,
+                    "hours": 6.21,
+                    "hours_and_minutes": [
+                        6,
+                        13
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 10 mins",
+                    "value": 22185
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0566": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 499017,
+                    "meters": 499017,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407912,
+                    "seconds": 407912,
+                    "minutes": 6799,
+                    "hours": 113.31,
+                    "hours_and_minutes": [
+                        113,
+                        19
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 536468,
+                    "meters": 536468,
+                    "kilometers": 537
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103345,
+                    "seconds": 103345,
+                    "minutes": 1723,
+                    "hours": 28.71,
+                    "hours_and_minutes": [
+                        28,
+                        43
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 497619,
+                    "meters": 497619,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "6 hours 21 mins",
+                    "value": 22879,
+                    "seconds": 22879,
+                    "minutes": 382,
+                    "hours": 6.36,
+                    "hours_and_minutes": [
+                        6,
+                        22
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 19 mins",
+                    "value": 22767
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "494 km",
+                    "value": 493552,
+                    "meters": 493552,
+                    "kilometers": 494
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403347,
+                    "seconds": 403347,
+                    "minutes": 6723,
+                    "hours": 112.04,
+                    "hours_and_minutes": [
+                        112,
+                        3
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 530544,
+                    "meters": 530544,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102158,
+                    "seconds": 102158,
+                    "minutes": 1703,
+                    "hours": 28.38,
+                    "hours_and_minutes": [
+                        28,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531180,
+                    "meters": 531180,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "7 hours 20 mins",
+                    "value": 26422,
+                    "seconds": 26422,
+                    "minutes": 441,
+                    "hours": 7.34,
+                    "hours_and_minutes": [
+                        7,
+                        21
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489771,
+                    "meters": 489771,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "6 hours 13 mins",
+                    "value": 22376,
+                    "seconds": 22376,
+                    "minutes": 373,
+                    "hours": 6.22,
+                    "hours_and_minutes": [
+                        6,
+                        13
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 11 mins",
+                    "value": 22280
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0559": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "499 km",
+                    "value": 499407,
+                    "meters": 499407,
+                    "kilometers": 500
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 408281,
+                    "seconds": 408281,
+                    "minutes": 6805,
+                    "hours": 113.41,
+                    "hours_and_minutes": [
+                        113,
+                        25
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "537 km",
+                    "value": 537186,
+                    "meters": 537186,
+                    "kilometers": 538
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103539,
+                    "seconds": 103539,
+                    "minutes": 1726,
+                    "hours": 28.76,
+                    "hours_and_minutes": [
+                        28,
+                        46
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496627,
+                    "meters": 496627,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "6 hours 22 mins",
+                    "value": 22949,
+                    "seconds": 22949,
+                    "minutes": 383,
+                    "hours": 6.37,
+                    "hours_and_minutes": [
+                        6,
+                        23
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 19 mins",
+                    "value": 22725
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "494 km",
+                    "value": 493943,
+                    "meters": 493943,
+                    "kilometers": 494
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403717,
+                    "seconds": 403717,
+                    "minutes": 6729,
+                    "hours": 112.14,
+                    "hours_and_minutes": [
+                        112,
+                        9
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 531261,
+                    "meters": 531261,
+                    "kilometers": 532
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102352,
+                    "seconds": 102352,
+                    "minutes": 1706,
+                    "hours": 28.43,
+                    "hours_and_minutes": [
+                        28,
+                        26
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 530870,
+                    "meters": 530870,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "7 hours 17 mins",
+                    "value": 26218,
+                    "seconds": 26218,
+                    "minutes": 437,
+                    "hours": 7.28,
+                    "hours_and_minutes": [
+                        7,
+                        17
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "489 km",
+                    "value": 488779,
+                    "meters": 488779,
+                    "kilometers": 489
+                },
+                "duration": {
+                    "text": "6 hours 14 mins",
+                    "value": 22446,
+                    "seconds": 22446,
+                    "minutes": 375,
+                    "hours": 6.24,
+                    "hours_and_minutes": [
+                        6,
+                        15
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 11 mins",
+                    "value": 22238
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "0557": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "498 km",
+                    "value": 498416,
+                    "meters": 498416,
+                    "kilometers": 499
+                },
+                "duration": {
+                    "text": "4 days 17 hours",
+                    "value": 407402,
+                    "seconds": 407402,
+                    "minutes": 6791,
+                    "hours": 113.17,
+                    "hours_and_minutes": [
+                        113,
+                        11
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "536 km",
+                    "value": 536431,
+                    "meters": 536431,
+                    "kilometers": 537
+                },
+                "duration": {
+                    "text": "1 day 5 hours",
+                    "value": 103360,
+                    "seconds": 103360,
+                    "minutes": 1723,
+                    "hours": 28.71,
+                    "hours_and_minutes": [
+                        28,
+                        43
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 497363,
+                    "meters": 497363,
+                    "kilometers": 498
+                },
+                "duration": {
+                    "text": "6 hours 21 mins",
+                    "value": 22835,
+                    "seconds": 22835,
+                    "minutes": 381,
+                    "hours": 6.34,
+                    "hours_and_minutes": [
+                        6,
+                        21
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 18 mins",
+                    "value": 22669
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "493 km",
+                    "value": 492952,
+                    "meters": 492952,
+                    "kilometers": 493
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 402837,
+                    "seconds": 402837,
+                    "minutes": 6714,
+                    "hours": 111.9,
+                    "hours_and_minutes": [
+                        111,
+                        54
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 530506,
+                    "meters": 530506,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 102173,
+                    "seconds": 102173,
+                    "minutes": 1703,
+                    "hours": 28.38,
+                    "hours_and_minutes": [
+                        28,
+                        23
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "531 km",
+                    "value": 530825,
+                    "meters": 530825,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "7 hours 18 mins",
+                    "value": 26280,
+                    "seconds": 26280,
+                    "minutes": 438,
+                    "hours": 7.3,
+                    "hours_and_minutes": [
+                        7,
+                        18
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "490 km",
+                    "value": 489515,
+                    "meters": 489515,
+                    "kilometers": 490
+                },
+                "duration": {
+                    "text": "6 hours 12 mins",
+                    "value": 22332,
+                    "seconds": 22332,
+                    "minutes": 373,
+                    "hours": 6.2,
+                    "hours_and_minutes": [
+                        6,
+                        13
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 10 mins",
+                    "value": 22182
+                },
+                "status": "OK"
+            }
+        }
+    },
+    "1071": {
+        "7010 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "497 km",
+                    "value": 496677,
+                    "meters": 496677,
+                    "kilometers": 497
+                },
+                "duration": {
+                    "text": "4 days 16 hours",
+                    "value": 403963,
+                    "seconds": 403963,
+                    "minutes": 6733,
+                    "hours": 112.21,
+                    "hours_and_minutes": [
+                        112,
+                        13
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "530 km",
+                    "value": 530215,
+                    "meters": 530215,
+                    "kilometers": 531
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 101540,
+                    "seconds": 101540,
+                    "minutes": 1693,
+                    "hours": 28.21,
+                    "hours_and_minutes": [
+                        28,
+                        13
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "status": "ZERO_RESULTS"
+            },
+            "driving": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 490708,
+                    "meters": 490708,
+                    "kilometers": 491
+                },
+                "duration": {
+                    "text": "6 hours 14 mins",
+                    "value": 22446,
+                    "seconds": 22446,
+                    "minutes": 375,
+                    "hours": 6.24,
+                    "hours_and_minutes": [
+                        6,
+                        15
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 9 mins",
+                    "value": 22137
+                },
+                "status": "OK"
+            }
+        },
+        "7030 Trondheim, Norway": {
+            "walking": {
+                "distance": {
+                    "text": "491 km",
+                    "value": 491213,
+                    "meters": 491213,
+                    "kilometers": 492
+                },
+                "duration": {
+                    "text": "4 days 15 hours",
+                    "value": 399398,
+                    "seconds": 399398,
+                    "minutes": 6657,
+                    "hours": 110.94,
+                    "hours_and_minutes": [
+                        110,
+                        57
+                    ]
+                },
+                "status": "OK"
+            },
+            "bicycling": {
+                "distance": {
+                    "text": "524 km",
+                    "value": 524291,
+                    "meters": 524291,
+                    "kilometers": 525
+                },
+                "duration": {
+                    "text": "1 day 4 hours",
+                    "value": 100354,
+                    "seconds": 100354,
+                    "minutes": 1673,
+                    "hours": 27.88,
+                    "hours_and_minutes": [
+                        27,
+                        53
+                    ]
+                },
+                "status": "OK"
+            },
+            "transit": {
+                "distance": {
+                    "text": "537 km",
+                    "value": 537006,
+                    "meters": 537006,
+                    "kilometers": 538
+                },
+                "duration": {
+                    "text": "7 hours 30 mins",
+                    "value": 27015,
+                    "seconds": 27015,
+                    "minutes": 451,
+                    "hours": 7.5,
+                    "hours_and_minutes": [
+                        7,
+                        31
+                    ]
+                },
+                "status": "OK"
+            },
+            "driving": {
+                "distance": {
+                    "text": "483 km",
+                    "value": 482860,
+                    "meters": 482860,
+                    "kilometers": 483
+                },
+                "duration": {
+                    "text": "6 hours 6 mins",
+                    "value": 21944,
+                    "seconds": 21944,
+                    "minutes": 366,
+                    "hours": 6.1,
+                    "hours_and_minutes": [
+                        6,
+                        6
+                    ]
+                },
+                "duration_in_traffic": {
+                    "text": "6 hours 1 min",
+                    "value": 21654
+                },
+                "status": "OK"
+            }
+        }
     }
 }
