@@ -1,6 +1,3 @@
 venv/
 .env
 __pycache__/
-
-frontend/public/data/distance_postcodes_destinations.json
-frontend/public/data/distance_destinations_postcodes.json
