@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+public/data/distance_postcodes_destinations.json
+public/data/distance_destinations_postcodes.json
