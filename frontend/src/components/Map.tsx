@@ -55,6 +55,14 @@ export default function MapComponent() {
               };
             }
           });
+          map.data.addListener('click', (event) => {
+            map.data.revertStyle();
+            map.data.overrideStyle(event.feature, {
+              fillColor: 'DarkGray',               // #A9A9A9
+              fillOpacity: 0.3,
+              zIndex: 2,
+            });
+          });
 
           // Create markers for labels
           const newMarkers: google.maps.Marker[] = [];
