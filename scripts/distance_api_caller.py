@@ -176,87 +176,30 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
         tuple: Distance matrix results for walking, bicycling, transit, and driving modes with added granularity.
     """
     
+    results_list = [results_walking, results_bicycling, results_transit, results_driving]
+    
     # Add granularity to results
-    for origin_index, origin in enumerate(results_walking["origin_addresses"]):
-        for destination_index, destination in enumerate(results_walking["destination_addresses"]):
-            
-            # TODO: Refactor this code to avoid repetition
-            # Walking
-            if results_walking["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_walking = results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_walking = math.ceil(results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_walking = results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_walking = math.ceil(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_walking = round(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_walking = math.floor(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_walking = math.ceil((results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_walking * 3600)) / 60)
-                hours_and_minutes_walking = [hrs_walking, min_walking]
+    for results in results_list:
+        for origin_index, origin in enumerate(results["origin_addresses"]):
+            for destination_index, destination in enumerate(results["destination_addresses"]):
+                if results["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
+                    meters = results["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
+                    kilometers = math.ceil(results["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
+                    seconds = results["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
+                    minutes = math.ceil(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
+                    hours = round(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
+                    hrs = math.floor(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
+                    min = math.ceil((results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs * 3600)) / 60)
+                    hours_and_minutes = [hrs, min]
+                    
+                    results["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters
+                    results["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes
                 
-                results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_walking
-            
-            
-            # Bicycling
-            if results_bicycling["rows"][origin_index]["elements"][destination_index]["status"] == "OK":    # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_bicycling = math.ceil(results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_bicycling = math.ceil(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_bicycling = round(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_bicycling = math.floor(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_bicycling = math.ceil((results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_bicycling * 3600)) / 60)
-                hours_and_minutes_bicycling = [hrs_bicycling, min_bicycling]
-                
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_bicycling
-            
-            
-            # Transit   -   TODO NOTE: Remember to check if the status is "OK" in frontend before displaying results
-            if results_transit["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_transit = results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_transit = math.ceil(results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_transit = results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_transit = math.ceil(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_transit = round(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_transit = math.floor(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_transit = math.ceil((results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_transit * 3600)) / 60)
-                hours_and_minutes_transit = [hrs_transit, min_transit]
-                
-                results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_transit
-
-            
-            # Driving
-            if results_driving["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_driving = results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_driving = math.ceil(results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_driving = results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_driving = math.ceil(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_driving = round(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_driving = math.floor(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_driving = math.ceil((results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_driving * 3600)) / 60)
-                hours_and_minutes_driving = [hrs_driving, min_driving]
-                
-                results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_driving
- 
-    return results_walking, results_bicycling, results_transit, results_driving
+    return results_walking, results_bicycling, results_transit, results_driving     # Return updated results, remember that dictionaries are mutable in Python, so they are updated when looping through "results_list"
 
 # Get results
 def get_results(results_walking, results_bicycling, results_transit, results_driving, destinations_metadata):
@@ -495,14 +438,8 @@ def get_and_append_results(gmaps, origins, destinations, destinations_metadata, 
         mode="driving"
         )
     
-    pprint(destinations)
-    pprint(destinations_metadata)
-    
     # Manually update destination names
     destinations, destinations_metadata = update_destination_names(destinations, destinations_metadata)
-    
-    pprint(destinations)
-    pprint(destinations_metadata)
     
     # Add granularity to results
     results_walking, results_bicycling, results_transit, results_driving = add_granularity_to_results(
@@ -563,7 +500,7 @@ def update_distances(destinations, destinations_metadata, is_overwrite=False):
     
     # Get and append results to avoid exceeding Google Maps API rate limits             # TODO: Max 100 elements per request, max 25 origins OR 25 destinations per request
     # for i in tqdm(range(0, len(origins))):
-    for i in tqdm(range(0, 3)):
+    for i in tqdm(range(0, 2)):
         get_and_append_results(gmaps, origins[i], destinations, destinations_metadata, is_overwrite)
     
     # print(f"Done updating distances between {len(origins)} origins and {len(destinations)} destinations!")
