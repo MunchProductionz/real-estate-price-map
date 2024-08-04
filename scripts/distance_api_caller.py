@@ -499,7 +499,6 @@ def update_distances(destinations, destinations_metadata, is_overwrite=False):
     origins = [f"{postcode}, Norway" for postcode in postcodes]
     
     # Get and append results to avoid exceeding Google Maps API rate limits             # TODO: Max 100 elements per request, max 25 origins OR 25 destinations per request
-    # for i in tqdm(range(0, len(origins))):
     for i in tqdm(range(0, len(origins))):
         get_and_append_results(gmaps, origins[i], destinations, destinations_metadata, is_overwrite)
     
