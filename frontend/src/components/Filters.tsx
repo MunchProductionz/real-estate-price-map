@@ -93,7 +93,6 @@ export default function Filters() {
         <Label>Maksimal Kjøpssum</Label>
         <Label>{formatNumberWithSpaces(maxPrice)}</Label>
       </div>
-      <ModeToggle />
     </div>
   );
 }
