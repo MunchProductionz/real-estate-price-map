@@ -26,3 +26,5 @@ dist-ssr
 
 public/data/distance_postcodes_destinations.json
 public/data/distance_destinations_postcodes.json
+public/data/distance_postcodes_destinations_extra_points.json
+public/data/distance_destinations_postcodes_extra_points.json

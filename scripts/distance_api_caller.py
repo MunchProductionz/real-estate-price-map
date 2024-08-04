@@ -16,8 +16,8 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     """Get destinations for which distances need to be calculated. Destinations can be Vinmonopolet stores, shopping malls, etc.
 
     Args:
-        is_vinmonopolet (bool, optional): _description_. Defaults to False.
-        is_shopping_mall (bool, optional): _description_. Defaults to False.
+        is_vinmonopolet (bool, optional): Flags whether to get vinmonopolet destinations. Defaults to False.
+        is_shopping_mall (bool, optional): Flags whether to get shopping mall destinations. Defaults to False.
 
     Returns:
         tuple: List of destinations and dictionary with destination categories as keys, and destination addresses as values. The dictionary should look like: {"vinmonopolet": {"{address}, {postcode}, Norway": "{destination_name}", ...}, ...}
@@ -29,28 +29,28 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     
     if is_vinmonopolet:
         destinations_vinmonopolet = {
-            "Lilleakerveien 16, 0283 Oslo, Norway": "Vinmonopolet CC Vest",
-            "Elisenbergveien 37, 0265 Oslo, Norway": "Vinmonopolet Frogner",
-            "Slemdalsveien 70a, 0370 Oslo, Norway": "Vinmonopolet Slemdal",
-            "Sørkedalsveien 10, 0369 Oslo, Norway": "Vinmonopolet Majorstuen",
-            "Briskebyveien 48, 0259 Oslo, Norway": "Vinmonopolet Briskeby",
-            "Bryggegata 9, 0250 Oslo, Norway": "Vinmonopolet Aker Brygge",
-            "Karl Johans gt. 37, 0162 Oslo, Norway": "Vinmonopolet Karl Johan",
-            "Kongens gate 23, 0153 Oslo, Norway": "Vinmonopolet Stortinget",
-            "Waldemar Thranes gate 72, 0175 Oslo, Norway": "Vinmonopolet St. Hanshaugen",
-            "Nordre gate 16, 0551 Oslo, Norway": "Vinmonopolet Nordre Gate",
-            "1-3, Stenersgata, 0050 Oslo, Norway": "Vinmonopolet Oslo City",
-            "Jernbanetorget 1, 0154 Oslo, Norway": "Vinmonopolet Jernbanetorget",
-            "Dronning Eufemias gate 11, 0191 Oslo, Norway": "Vinmonopolet Operahuset",
-            "Rostockgata 130, Oslo kommune, Norway": "Vinmonopolet Bjørvika",
-            "Tøyengata 2, 0190 Oslo, Norway": "Vinmonopolet Tøyen",
-            "Nydalsveien 33, 0484 Oslo, Norway": "Vinmonopolet Nydalen",
-            "Vitaminveien 7, 0485 Oslo, Norway": "Vinmonopolet Storo",
-            "Sandakerveien 59, 0477 Oslo, Norway": "Vinmonopolet Torshov",
-            "Hasleveien 10, 0571 Oslo, Norway": "Vinmonopolet Grünerløkka",
-            "Grenseveien 50, 0579 Oslo, Norway": "Vinmonopolet Hovin",
-            "Cecilie Thoresens vei 17, 1153 Oslo, Norway": "Vinmonopolet Lambertseter",
-            "Utmarkveien 1, 0689 Oslo, Norway": "Vinmonopolet Bøler",
+            # "Lilleakerveien 16, 0283 Oslo, Norway": "Vinmonopolet CC Vest",
+            # "Elisenbergveien 37, 0265 Oslo, Norway": "Vinmonopolet Frogner",
+            # "Slemdalsveien 70a, 0370 Oslo, Norway": "Vinmonopolet Slemdal",
+            # "Sørkedalsveien 10, 0369 Oslo, Norway": "Vinmonopolet Majorstuen",
+            # "Briskebyveien 48, 0259 Oslo, Norway": "Vinmonopolet Briskeby",
+            # "Bryggegata 9, 0250 Oslo, Norway": "Vinmonopolet Aker Brygge",
+            # "Karl Johans gt. 37, 0162 Oslo, Norway": "Vinmonopolet Karl Johan",
+            # "Kongens gate 23, 0153 Oslo, Norway": "Vinmonopolet Stortinget",
+            # "Waldemar Thranes gate 72, 0175 Oslo, Norway": "Vinmonopolet St. Hanshaugen",
+            # "Nordre gate 16, 0551 Oslo, Norway": "Vinmonopolet Nordre Gate",
+            # "1-3, Stenersgata, 0050 Oslo, Norway": "Vinmonopolet Oslo City",
+            # "Jernbanetorget 1, 0154 Oslo, Norway": "Vinmonopolet Jernbanetorget",
+            # "Dronning Eufemias gate 11, 0191 Oslo, Norway": "Vinmonopolet Operahuset",
+            # "Rostockgata 130, Oslo kommune, Norway": "Vinmonopolet Bjørvika",
+            # "Tøyengata 2, 0190 Oslo, Norway": "Vinmonopolet Tøyen",
+            # "Nydalsveien 33, 0484 Oslo, Norway": "Vinmonopolet Nydalen",
+            # "Vitaminveien 7, 0485 Oslo, Norway": "Vinmonopolet Storo",
+            # "Sandakerveien 59, 0477 Oslo, Norway": "Vinmonopolet Torshov",
+            # "Hasleveien 10, 0571 Oslo, Norway": "Vinmonopolet Grünerløkka",
+            # "Grenseveien 50, 0579 Oslo, Norway": "Vinmonopolet Hovin",
+            # "Cecilie Thoresens vei 17, 1153 Oslo, Norway": "Vinmonopolet Lambertseter",
+            # "Utmarkveien 1, 0689 Oslo, Norway": "Vinmonopolet Bøler",
         }
         for destination in destinations_vinmonopolet.keys():
             if not destination in destinations:
@@ -59,11 +59,11 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     
     if is_shopping_mall:
         destinations_shopping_mall = {
-            "1-3, Stenersgata, 0050 Oslo, Norway": "Oslo City",                         # NOTE: This is same address as Vinmonopolet Oslo City
-            "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway": "St. Hanshaugen Senter",
-            "Tøyengata 2, 0190 Oslo, Norway": "Grønland Basar",                         # NOTE: This is same address as Vinmonopolet Tøyen
-            "Vitaminveien 7, 9 0485, 0485 Oslo, Norway": "Storo Storsenter",
-            "Sandakerveien 59, 0477 Oslo, Norway": "Sandaker Senter",                   # NOTE: This is same address as Vinmonopolet Torshov
+            # "1-3, Stenersgata, 0050 Oslo, Norway": "Oslo City",                         # NOTE: This is same address as Vinmonopolet Oslo City
+            # "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway": "St. Hanshaugen Senter",
+            # "Tøyengata 2, 0190 Oslo, Norway": "Grønland Basar",                         # NOTE: This is same address as Vinmonopolet Tøyen
+            # "Vitaminveien 7, 9 0485, 0485 Oslo, Norway": "Storo Storsenter",
+            # "Sandakerveien 59, 0477 Oslo, Norway": "Sandaker Senter",                   # NOTE: This is same address as Vinmonopolet Torshov
         }
         for destination in destinations_shopping_mall.keys():
             if not destination in destinations:
@@ -132,32 +132,35 @@ def update_destination_names(destinations, destinations_metadata):
         tuple: Updated destinations (list) and destinations_metadata (dict).
     """
     
-    for destinations_index, destination in enumerate(destinations):
+    destinations_copy = destinations.copy()
+    destinations_metadata_copy = destinations_metadata.copy()
+    
+    for destinations_index, destination in enumerate(destinations_copy):
         
         # St. Hanshaugen Senter
         if destination == "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway":
-            destinations[destinations_index] = "Waldemar Thranes gate 25, 0171 Oslo, Norway"
+            destinations_copy[destinations_index] = "Waldemar Thranes gate 25, 0171 Oslo, Norway"
             
         # Vinmonopolet Oslo City
         if destination == "1-3, Stenersgata, 0050 Oslo, Norway":
-            destinations[destinations_index] = "Stenersgata 1, 0050 Oslo, Norway"
+            destinations_copy[destinations_index] = "Stenersgata 1, 0050 Oslo, Norway"
             
         
-    for category in destinations_metadata.keys():
-        temp_destinations_mdetadata_keys = list(destinations_metadata[category].keys())
-        for destination in temp_destinations_mdetadata_keys:
+    for category in destinations_metadata_copy.keys():
+        temp_destinations_metadata_keys = list(destinations_metadata_copy[category].keys())
+        for destination in temp_destinations_metadata_keys:
             
             # St. Hanshaugen Senter
             if destination == "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway":
-                if "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway" in temp_destinations_mdetadata_keys:
-                    destinations_metadata[category]["Waldemar Thranes gate 25, 0171 Oslo, Norway"] = destinations_metadata[category].pop(destination)
+                if "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway" in temp_destinations_metadata_keys:
+                    destinations_metadata_copy[category]["Waldemar Thranes gate 25, 0171 Oslo, Norway"] = destinations_metadata_copy[category].pop(destination)
                     
             # Vinmonopolet Oslo City
             if destination == "1-3, Stenersgata, 0050 Oslo, Norway":
-                if "1-3, Stenersgata, 0050 Oslo, Norway" in temp_destinations_mdetadata_keys:
-                    destinations_metadata[category]["Stenersgata 1, 0050 Oslo, Norway"] = destinations_metadata[category].pop(destination)
+                if "1-3, Stenersgata, 0050 Oslo, Norway" in temp_destinations_metadata_keys:
+                    destinations_metadata_copy[category]["Stenersgata 1, 0050 Oslo, Norway"] = destinations_metadata_copy[category].pop(destination)
     
-    return destinations, destinations_metadata
+    return destinations_copy, destinations_metadata_copy
     
 # Add granularity to distance matrix results
 def add_granularity_to_results(results_walking, results_bicycling, results_transit, results_driving):
@@ -173,87 +176,30 @@ def add_granularity_to_results(results_walking, results_bicycling, results_trans
         tuple: Distance matrix results for walking, bicycling, transit, and driving modes with added granularity.
     """
     
+    results_list = [results_walking, results_bicycling, results_transit, results_driving]
+    
     # Add granularity to results
-    for origin_index, origin in enumerate(results_walking["origin_addresses"]):
-        for destination_index, destination in enumerate(results_walking["destination_addresses"]):
-            
-            # TODO: Refactor this code to avoid repetition
-            # Walking
-            if results_walking["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_walking = results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_walking = math.ceil(results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_walking = results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_walking = math.ceil(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_walking = round(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_walking = math.floor(results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_walking = math.ceil((results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_walking * 3600)) / 60)
-                hours_and_minutes_walking = [hrs_walking, min_walking]
+    for results in results_list:
+        for origin_index, origin in enumerate(results["origin_addresses"]):
+            for destination_index, destination in enumerate(results["destination_addresses"]):
+                if results["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
+                    meters = results["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
+                    kilometers = math.ceil(results["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
+                    seconds = results["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
+                    minutes = math.ceil(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
+                    hours = round(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
+                    hrs = math.floor(results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
+                    min = math.ceil((results["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs * 3600)) / 60)
+                    hours_and_minutes = [hrs, min]
+                    
+                    results["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters
+                    results["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours
+                    results["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes
                 
-                results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_walking
-                results_walking["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_walking
-            
-            
-            # Bicycling
-            if results_bicycling["rows"][origin_index]["elements"][destination_index]["status"] == "OK":    # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_bicycling = math.ceil(results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_bicycling = results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_bicycling = math.ceil(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_bicycling = round(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_bicycling = math.floor(results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_bicycling = math.ceil((results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_bicycling * 3600)) / 60)
-                hours_and_minutes_bicycling = [hrs_bicycling, min_bicycling]
-                
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_bicycling
-                results_bicycling["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_bicycling
-            
-            
-            # Transit   -   TODO NOTE: Remember to check if the status is "OK" in frontend before displaying results
-            if results_transit["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_transit = results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_transit = math.ceil(results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_transit = results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_transit = math.ceil(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_transit = round(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_transit = math.floor(results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_transit = math.ceil((results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_transit * 3600)) / 60)
-                hours_and_minutes_transit = [hrs_transit, min_transit]
-                
-                results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_transit
-                results_transit["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_transit
-
-            
-            # Driving
-            if results_driving["rows"][origin_index]["elements"][destination_index]["status"] == "OK":      # Check if status is "OK", otherwise skip.  If status is "ZERO_RESULTS", results are not available, and response looks like: {'status': 'ZERO_RESULTS'}
-                meters_driving = results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"]
-                kilometers_driving = math.ceil(results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["value"] / 1000)
-                seconds_driving = results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"]
-                minutes_driving = math.ceil(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 60)
-                hours_driving = round(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600, 2)
-                hrs_driving = math.floor(results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] / 3600)
-                min_driving = math.ceil((results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["value"] - (hrs_driving * 3600)) / 60)
-                hours_and_minutes_driving = [hrs_driving, min_driving]
-                
-                results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["meters"] = meters_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["distance"]["kilometers"] = kilometers_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["seconds"] = seconds_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["minutes"] = minutes_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["hours"] = hours_driving
-                results_driving["rows"][origin_index]["elements"][destination_index]["duration"]["hours_and_minutes"] = hours_and_minutes_driving
- 
-    return results_walking, results_bicycling, results_transit, results_driving
+    return results_walking, results_bicycling, results_transit, results_driving     # Return updated results, remember that dictionaries are mutable in Python, so they are updated when looping through "results_list"
 
 # Get results
 def get_results(results_walking, results_bicycling, results_transit, results_driving, destinations_metadata):
@@ -512,9 +458,13 @@ def get_and_append_results(gmaps, origins, destinations, destinations_metadata, 
         destinations_metadata=destinations_metadata
     )
     
+    # pprint(results_postcodes_destinations)
+    
     # Store distance matrix results
-    output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations.json")
-    output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes.json")
+    # output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations.json")
+    # output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes.json")
+    output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations_extra_points.json")
+    output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes_extra_points.json")
     
     if is_overwrite:
         store_results(results_postcodes_destinations, output_path_postcodes_destinations)
