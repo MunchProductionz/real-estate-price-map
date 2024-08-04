@@ -16,8 +16,8 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     """Get destinations for which distances need to be calculated. Destinations can be Vinmonopolet stores, shopping malls, etc.
 
     Args:
-        is_vinmonopolet (bool, optional): _description_. Defaults to False.
-        is_shopping_mall (bool, optional): _description_. Defaults to False.
+        is_vinmonopolet (bool, optional): Flags whether to get vinmonopolet destinations. Defaults to False.
+        is_shopping_mall (bool, optional): Flags whether to get shopping mall destinations. Defaults to False.
 
     Returns:
         tuple: List of destinations and dictionary with destination categories as keys, and destination addresses as values. The dictionary should look like: {"vinmonopolet": {"{address}, {postcode}, Norway": "{destination_name}", ...}, ...}
@@ -29,28 +29,28 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     
     if is_vinmonopolet:
         destinations_vinmonopolet = {
-            "Lilleakerveien 16, 0283 Oslo, Norway": "Vinmonopolet CC Vest",
-            "Elisenbergveien 37, 0265 Oslo, Norway": "Vinmonopolet Frogner",
-            "Slemdalsveien 70a, 0370 Oslo, Norway": "Vinmonopolet Slemdal",
-            "Sørkedalsveien 10, 0369 Oslo, Norway": "Vinmonopolet Majorstuen",
-            "Briskebyveien 48, 0259 Oslo, Norway": "Vinmonopolet Briskeby",
-            "Bryggegata 9, 0250 Oslo, Norway": "Vinmonopolet Aker Brygge",
-            "Karl Johans gt. 37, 0162 Oslo, Norway": "Vinmonopolet Karl Johan",
-            "Kongens gate 23, 0153 Oslo, Norway": "Vinmonopolet Stortinget",
-            "Waldemar Thranes gate 72, 0175 Oslo, Norway": "Vinmonopolet St. Hanshaugen",
-            "Nordre gate 16, 0551 Oslo, Norway": "Vinmonopolet Nordre Gate",
+            # "Lilleakerveien 16, 0283 Oslo, Norway": "Vinmonopolet CC Vest",
+            # "Elisenbergveien 37, 0265 Oslo, Norway": "Vinmonopolet Frogner",
+            # "Slemdalsveien 70a, 0370 Oslo, Norway": "Vinmonopolet Slemdal",
+            # "Sørkedalsveien 10, 0369 Oslo, Norway": "Vinmonopolet Majorstuen",
+            # "Briskebyveien 48, 0259 Oslo, Norway": "Vinmonopolet Briskeby",
+            # "Bryggegata 9, 0250 Oslo, Norway": "Vinmonopolet Aker Brygge",
+            # "Karl Johans gt. 37, 0162 Oslo, Norway": "Vinmonopolet Karl Johan",
+            # "Kongens gate 23, 0153 Oslo, Norway": "Vinmonopolet Stortinget",
+            # "Waldemar Thranes gate 72, 0175 Oslo, Norway": "Vinmonopolet St. Hanshaugen",
+            # "Nordre gate 16, 0551 Oslo, Norway": "Vinmonopolet Nordre Gate",
             "1-3, Stenersgata, 0050 Oslo, Norway": "Vinmonopolet Oslo City",
-            "Jernbanetorget 1, 0154 Oslo, Norway": "Vinmonopolet Jernbanetorget",
-            "Dronning Eufemias gate 11, 0191 Oslo, Norway": "Vinmonopolet Operahuset",
-            "Rostockgata 130, Oslo kommune, Norway": "Vinmonopolet Bjørvika",
-            "Tøyengata 2, 0190 Oslo, Norway": "Vinmonopolet Tøyen",
-            "Nydalsveien 33, 0484 Oslo, Norway": "Vinmonopolet Nydalen",
-            "Vitaminveien 7, 0485 Oslo, Norway": "Vinmonopolet Storo",
-            "Sandakerveien 59, 0477 Oslo, Norway": "Vinmonopolet Torshov",
-            "Hasleveien 10, 0571 Oslo, Norway": "Vinmonopolet Grünerløkka",
-            "Grenseveien 50, 0579 Oslo, Norway": "Vinmonopolet Hovin",
-            "Cecilie Thoresens vei 17, 1153 Oslo, Norway": "Vinmonopolet Lambertseter",
-            "Utmarkveien 1, 0689 Oslo, Norway": "Vinmonopolet Bøler",
+            # "Jernbanetorget 1, 0154 Oslo, Norway": "Vinmonopolet Jernbanetorget",
+            # "Dronning Eufemias gate 11, 0191 Oslo, Norway": "Vinmonopolet Operahuset",
+            # "Rostockgata 130, Oslo kommune, Norway": "Vinmonopolet Bjørvika",
+            # "Tøyengata 2, 0190 Oslo, Norway": "Vinmonopolet Tøyen",
+            # "Nydalsveien 33, 0484 Oslo, Norway": "Vinmonopolet Nydalen",
+            # "Vitaminveien 7, 0485 Oslo, Norway": "Vinmonopolet Storo",
+            # "Sandakerveien 59, 0477 Oslo, Norway": "Vinmonopolet Torshov",
+            # "Hasleveien 10, 0571 Oslo, Norway": "Vinmonopolet Grünerløkka",
+            # "Grenseveien 50, 0579 Oslo, Norway": "Vinmonopolet Hovin",
+            # "Cecilie Thoresens vei 17, 1153 Oslo, Norway": "Vinmonopolet Lambertseter",
+            # "Utmarkveien 1, 0689 Oslo, Norway": "Vinmonopolet Bøler",
         }
         for destination in destinations_vinmonopolet.keys():
             if not destination in destinations:
@@ -59,11 +59,11 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     
     if is_shopping_mall:
         destinations_shopping_mall = {
-            "1-3, Stenersgata, 0050 Oslo, Norway": "Oslo City",                         # NOTE: This is same address as Vinmonopolet Oslo City
+            # "1-3, Stenersgata, 0050 Oslo, Norway": "Oslo City",                         # NOTE: This is same address as Vinmonopolet Oslo City
             "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway": "St. Hanshaugen Senter",
-            "Tøyengata 2, 0190 Oslo, Norway": "Grønland Basar",                         # NOTE: This is same address as Vinmonopolet Tøyen
-            "Vitaminveien 7, 9 0485, 0485 Oslo, Norway": "Storo Storsenter",
-            "Sandakerveien 59, 0477 Oslo, Norway": "Sandaker Senter",                   # NOTE: This is same address as Vinmonopolet Torshov
+            # "Tøyengata 2, 0190 Oslo, Norway": "Grønland Basar",                         # NOTE: This is same address as Vinmonopolet Tøyen
+            # "Vitaminveien 7, 9 0485, 0485 Oslo, Norway": "Storo Storsenter",
+            # "Sandakerveien 59, 0477 Oslo, Norway": "Sandaker Senter",                   # NOTE: This is same address as Vinmonopolet Torshov
         }
         for destination in destinations_shopping_mall.keys():
             if not destination in destinations:
@@ -132,32 +132,35 @@ def update_destination_names(destinations, destinations_metadata):
         tuple: Updated destinations (list) and destinations_metadata (dict).
     """
     
-    for destinations_index, destination in enumerate(destinations):
+    destinations_copy = destinations.copy()
+    destinations_metadata_copy = destinations_metadata.copy()
+    
+    for destinations_index, destination in enumerate(destinations_copy):
         
         # St. Hanshaugen Senter
         if destination == "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway":
-            destinations[destinations_index] = "Waldemar Thranes gate 25, 0171 Oslo, Norway"
+            destinations_copy[destinations_index] = "Waldemar Thranes gate 25, 0171 Oslo, Norway"
             
         # Vinmonopolet Oslo City
         if destination == "1-3, Stenersgata, 0050 Oslo, Norway":
-            destinations[destinations_index] = "Stenersgata 1, 0050 Oslo, Norway"
+            destinations_copy[destinations_index] = "Stenersgata 1, 0050 Oslo, Norway"
             
         
-    for category in destinations_metadata.keys():
-        temp_destinations_mdetadata_keys = list(destinations_metadata[category].keys())
-        for destination in temp_destinations_mdetadata_keys:
+    for category in destinations_metadata_copy.keys():
+        temp_destinations_metadata_keys = list(destinations_metadata_copy[category].keys())
+        for destination in temp_destinations_metadata_keys:
             
             # St. Hanshaugen Senter
             if destination == "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway":
-                if "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway" in temp_destinations_mdetadata_keys:
-                    destinations_metadata[category]["Waldemar Thranes gate 25, 0171 Oslo, Norway"] = destinations_metadata[category].pop(destination)
+                if "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway" in temp_destinations_metadata_keys:
+                    destinations_metadata_copy[category]["Waldemar Thranes gate 25, 0171 Oslo, Norway"] = destinations_metadata_copy[category].pop(destination)
                     
             # Vinmonopolet Oslo City
             if destination == "1-3, Stenersgata, 0050 Oslo, Norway":
-                if "1-3, Stenersgata, 0050 Oslo, Norway" in temp_destinations_mdetadata_keys:
-                    destinations_metadata[category]["Stenersgata 1, 0050 Oslo, Norway"] = destinations_metadata[category].pop(destination)
+                if "1-3, Stenersgata, 0050 Oslo, Norway" in temp_destinations_metadata_keys:
+                    destinations_metadata_copy[category]["Stenersgata 1, 0050 Oslo, Norway"] = destinations_metadata_copy[category].pop(destination)
     
-    return destinations, destinations_metadata
+    return destinations_copy, destinations_metadata_copy
     
 # Add granularity to distance matrix results
 def add_granularity_to_results(results_walking, results_bicycling, results_transit, results_driving):
@@ -492,8 +495,14 @@ def get_and_append_results(gmaps, origins, destinations, destinations_metadata, 
         mode="driving"
         )
     
+    pprint(destinations)
+    pprint(destinations_metadata)
+    
     # Manually update destination names
     destinations, destinations_metadata = update_destination_names(destinations, destinations_metadata)
+    
+    pprint(destinations)
+    pprint(destinations_metadata)
     
     # Add granularity to results
     results_walking, results_bicycling, results_transit, results_driving = add_granularity_to_results(
@@ -512,9 +521,13 @@ def get_and_append_results(gmaps, origins, destinations, destinations_metadata, 
         destinations_metadata=destinations_metadata
     )
     
+    # pprint(results_postcodes_destinations)
+    
     # Store distance matrix results
-    output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations.json")
-    output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes.json")
+    # output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations.json")
+    # output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes.json")
+    output_path_postcodes_destinations = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations_extra_points.json")
+    output_path_destinations_postcodes = os.path.join(os.getcwd(), "../frontend/public/data/distance_destinations_postcodes_extra_points.json")
     
     if is_overwrite:
         store_results(results_postcodes_destinations, output_path_postcodes_destinations)
@@ -549,7 +562,8 @@ def update_distances(destinations, destinations_metadata, is_overwrite=False):
     origins = [f"{postcode}, Norway" for postcode in postcodes]
     
     # Get and append results to avoid exceeding Google Maps API rate limits             # TODO: Max 100 elements per request, max 25 origins OR 25 destinations per request
-    for i in tqdm(range(0, len(origins))):
+    # for i in tqdm(range(0, len(origins))):
+    for i in tqdm(range(0, 3)):
         get_and_append_results(gmaps, origins[i], destinations, destinations_metadata, is_overwrite)
     
     # print(f"Done updating distances between {len(origins)} origins and {len(destinations)} destinations!")
