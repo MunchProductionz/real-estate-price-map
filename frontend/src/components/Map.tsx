@@ -19,38 +19,41 @@ export default function MapComponent() {
     if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
         setTimeout(() => {
-
           const map = mapRef.current!;
-          
+
           // Clear existing data to avoid stacking styles
-          map.data.forEach(feature => {
+          map.data.forEach((feature) => {
             map.data.remove(feature);
           });
 
           map.data.addGeoJson(geoJsonData);
           map.data.setStyle((feature) => {
-            const averagePrice = feature.getProperty("averagePrice" + squareMeters + "m2") as number;
-            if (maxPrice > averagePrice) {                // Affordability check
-              if (maxPrice > averagePrice * 1.2) {        // 20% buffer for high affordability (potential bidding war)
+            const averagePrice = feature.getProperty(
+              'averagePrice' + squareMeters + 'm2',
+            ) as number;
+            if (maxPrice > averagePrice) {
+              // Affordability check
+              if (maxPrice > averagePrice * 1.2) {
+                // 20% buffer for high affordability (potential bidding war)
                 return {
-                  fillColor: 'RoyalBlue',             // #4169E1
+                  fillColor: 'RoyalBlue', // #4169E1
                   fillOpacity: 0.3,
-                  strokeColor: 'MidnightBlue',        // #191970 
+                  strokeColor: 'MidnightBlue', // #191970
                   strokeWeight: 0.1,
                 };
               } else {
                 return {
-                  fillColor: 'Salmon',               // #FA8072    
+                  fillColor: 'Salmon', // #FA8072
                   fillOpacity: 0.3,
-                  strokeColor: 'Maroon',             // #800000
+                  strokeColor: 'Maroon', // #800000
                   strokeWeight: 0.1,
                 };
               }
             } else {
               return {
-                fillColor: 'black',                 // #000000
-                fillOpacity: 0.5 ,
-                strokeColor: 'black',               // #000000
+                fillColor: 'black', // #000000
+                fillOpacity: 0.5,
+                strokeColor: 'black', // #000000
                 strokeWeight: 0.1,
               };
             }
@@ -60,9 +63,11 @@ export default function MapComponent() {
           const newMarkers: google.maps.Marker[] = [];
           map.data.forEach((feature) => {
             const bounds = new google.maps.LatLngBounds();
-            feature.getGeometry()?.forEachLatLng((latLng: google.maps.LatLng) => {
-              bounds.extend(latLng);
-            });
+            feature
+              .getGeometry()
+              ?.forEachLatLng((latLng: google.maps.LatLng) => {
+                bounds.extend(latLng);
+              });
             const center = bounds.getCenter();
             const postnummer = feature.getProperty('postnummer') as string;
             const marker = new google.maps.Marker({
@@ -110,19 +115,29 @@ export default function MapComponent() {
           const zoom = map.getZoom();
           if (!zoom) return;
           if (position) {
-            marker.setVisible(bounds.contains(position) && zoom >= ZOOM_THRESHOLD);
+            marker.setVisible(
+              bounds.contains(position) && zoom >= ZOOM_THRESHOLD,
+            );
           }
         });
       };
 
       // Add zoom change listener
-      const zoomListener = google.maps.event.addListener(map, 'zoom_changed', () => {
-        handleZoomChange();
-        updateMarkersVisibility();
-      });
+      const zoomListener = google.maps.event.addListener(
+        map,
+        'zoom_changed',
+        () => {
+          handleZoomChange();
+          updateMarkersVisibility();
+        },
+      );
 
       // Add bounds change listener to update marker visibility based on viewport
-      const boundsListener = google.maps.event.addListener(map, 'bounds_changed', updateMarkersVisibility);
+      const boundsListener = google.maps.event.addListener(
+        map,
+        'bounds_changed',
+        updateMarkersVisibility,
+      );
 
       // Initial call to set visibility based on the current zoom level and viewport
       handleZoomChange();
@@ -137,27 +152,25 @@ export default function MapComponent() {
   }, [markers]);
 
   return (
-    <div className='m-4'>
-      <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={{
-            width: '100%',
-            height: '85vh',
-          }}
-          center={{
-            lat: 59.93,
-            lng: 10.75,
-          }}
-          zoom={11}
-          options={{ mapId: import.meta.env.VITE_GOOGLE_MAP_ID }}
-          onLoad={(map) => {
-            mapRef.current = map;
-            setIsMapLoaded(true);
-          }}
-        >
-          {/* Child components, such as markers, info windows, etc. */}
-        </GoogleMap>
-      </LoadScript>
-    </div>
+    <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+      <GoogleMap
+        mapContainerStyle={{
+          width: '100%',
+          height: 'calc(100vh - 56px)',
+        }}
+        center={{
+          lat: 59.93,
+          lng: 10.75,
+        }}
+        zoom={11}
+        options={{ mapId: import.meta.env.VITE_GOOGLE_MAP_ID }}
+        onLoad={(map) => {
+          mapRef.current = map;
+          setIsMapLoaded(true);
+        }}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+      </GoogleMap>
+    </LoadScript>
   );
 }
