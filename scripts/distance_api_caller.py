@@ -39,7 +39,7 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
             # "Kongens gate 23, 0153 Oslo, Norway": "Vinmonopolet Stortinget",
             # "Waldemar Thranes gate 72, 0175 Oslo, Norway": "Vinmonopolet St. Hanshaugen",
             # "Nordre gate 16, 0551 Oslo, Norway": "Vinmonopolet Nordre Gate",
-            "1-3, Stenersgata, 0050 Oslo, Norway": "Vinmonopolet Oslo City",
+            # "1-3, Stenersgata, 0050 Oslo, Norway": "Vinmonopolet Oslo City",
             # "Jernbanetorget 1, 0154 Oslo, Norway": "Vinmonopolet Jernbanetorget",
             # "Dronning Eufemias gate 11, 0191 Oslo, Norway": "Vinmonopolet Operahuset",
             # "Rostockgata 130, Oslo kommune, Norway": "Vinmonopolet Bjørvika",
@@ -60,7 +60,7 @@ def get_destinations(is_vinmonopolet=False, is_shopping_mall=False):
     if is_shopping_mall:
         destinations_shopping_mall = {
             # "1-3, Stenersgata, 0050 Oslo, Norway": "Oslo City",                         # NOTE: This is same address as Vinmonopolet Oslo City
-            "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway": "St. Hanshaugen Senter",
+            # "St. Hanshaugen senter, Waldemar Thranes gate 25, 0171 Oslo, Norway": "St. Hanshaugen Senter",
             # "Tøyengata 2, 0190 Oslo, Norway": "Grønland Basar",                         # NOTE: This is same address as Vinmonopolet Tøyen
             # "Vitaminveien 7, 9 0485, 0485 Oslo, Norway": "Storo Storsenter",
             # "Sandakerveien 59, 0477 Oslo, Norway": "Sandaker Senter",                   # NOTE: This is same address as Vinmonopolet Torshov
@@ -500,7 +500,7 @@ def update_distances(destinations, destinations_metadata, is_overwrite=False):
     
     # Get and append results to avoid exceeding Google Maps API rate limits             # TODO: Max 100 elements per request, max 25 origins OR 25 destinations per request
     # for i in tqdm(range(0, len(origins))):
-    for i in tqdm(range(0, 2)):
+    for i in tqdm(range(0, len(origins))):
         get_and_append_results(gmaps, origins[i], destinations, destinations_metadata, is_overwrite)
     
     # print(f"Done updating distances between {len(origins)} origins and {len(destinations)} destinations!")
