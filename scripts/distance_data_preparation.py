@@ -31,7 +31,7 @@ def get_distance_postcodes_destinations() -> dict:
     Returns:
         dict: Distance data for postcodes and destinations.
     """
-    path = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations.json")
+    path = os.path.join(os.getcwd(), "../frontend/public/data/distance_postcodes_destinations_not_prepared.json")
     with open(path, "r") as f:
         distance_postcodes_destinations = json.load(f)
     return distance_postcodes_destinations
