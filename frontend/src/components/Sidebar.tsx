@@ -1,32 +1,36 @@
 import { cn } from '@/lib/utils';
-import { ReactNode, useState } from 'react';
-import Filters from './Filters';
-import Navbar from './Navbar';
+import { Filter } from 'lucide-react';
+import { Dispatch, SetStateAction } from 'react';
+import Inputs from './Inputs';
+import { Button } from './shadcn/ui/button';
 
-export default function Sidebar({ children }: { children: ReactNode }) {
-  const [expanded, setExpanded] = useState(true);
+export default function Sidebar({
+  expanded,
+  setFilterView,
+}: {
+  expanded: boolean;
+  setFilterView: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
-    <div className='flex min-h-screen bg-background'>
-      <div className='fixed z-50 h-screen'>
-        <div
-          className={cn(
-            'flex h-full flex-col items-end gap-1 overflow-hidden border-r bg-primary-foreground shadow-sm transition-all duration-300',
-            expanded ? 'w-64' : 'w-0',
-          )}
-        >
-          <div className='w-64'>
-            <Filters />
-          </div>
-        </div>
-      </div>
+    <div className='fixed z-30 h-screen'>
       <div
         className={cn(
-          'w-full transition-all duration-300',
-          expanded && 'translate-x-64 sm:translate-x-0 sm:pl-64',
+          'flex h-full flex-col items-end gap-1 overflow-hidden border-r bg-primary-foreground shadow-sm transition-all duration-300',
+          expanded ? 'w-64' : 'w-0',
         )}
       >
-        <Navbar expanded={expanded} setExpanded={setExpanded} />
-        {children}
+        <div className='flex h-full w-64 flex-col items-end justify-between'>
+          <Inputs />
+          <div className='m-4'>
+            <Button
+              size='icon'
+              variant='ghost'
+              onClick={() => setFilterView((prev) => !prev)}
+            >
+              <Filter />
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
