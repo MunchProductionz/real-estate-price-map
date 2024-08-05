@@ -1,3 +1,4 @@
+import DetailedInformation from '@/components/DetailedInformation';
 import Filters from '@/components/Filters';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
@@ -11,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [filterView, setFilterView] = useState(false);
   return (
     <div className='flex min-h-screen bg-background'>
-      <Sidebar expanded={expanded} setFilterView={setFilterView} />
+      <Sidebar expanded={expanded} />
       <div
         className={cn(
           'w-full transition-all duration-300',
@@ -33,6 +34,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           expanded={expanded}
           setFilterView={setFilterView}
         />
+        <DetailedInformation />
       </div>
     </div>
   );

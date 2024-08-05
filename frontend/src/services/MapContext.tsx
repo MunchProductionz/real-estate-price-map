@@ -1,10 +1,12 @@
 import {
   Context,
   Dispatch,
+  MutableRefObject,
   SetStateAction,
   createContext,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 
@@ -28,12 +30,16 @@ export type MapContextType = {
   squareMeters: number;
   maxPrice: number;
   filters: Filters;
+  selectedPostcode: string | null;
+  selectedPostcodeRef: MutableRefObject<string | null>;
   setEquity: Dispatch<SetStateAction<number>>;
   setDebt: Dispatch<SetStateAction<number>>;
   setIncome: Dispatch<SetStateAction<number>>;
   setExtraLoan: Dispatch<SetStateAction<number>>;
   setSquareMeters: Dispatch<SetStateAction<number>>;
   setFilters: Dispatch<SetStateAction<Filters>>;
+  // _setSelectedPostcode: Dispatch<SetStateAction<string | null>>;
+  setSelectedPostcode: (data: string | null) => void;
 };
 
 const MapContext: Context<MapContextType> = createContext({} as MapContextType);
@@ -46,6 +52,15 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
   const [squareMeters, setSquareMeters] = useState(60);
   const [maxPrice, setMaxPrice] = useState(0);
   const [filters, setFilters] = useState<Filters>({});
+  const [selectedPostcode, _setSelectedPostcode] = useState<string | null>(
+    null,
+  );
+
+  const selectedPostcodeRef = useRef(selectedPostcode);
+  const setSelectedPostcode = (data: string | null) => {
+    selectedPostcodeRef.current = data;
+    _setSelectedPostcode(data);
+  };
 
   useEffect(() => {
     setMaxPrice(equity + income * 5 - debt + extraLoan);
@@ -61,12 +76,15 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         squareMeters,
         maxPrice,
         filters,
+        selectedPostcode,
+        selectedPostcodeRef,
         setEquity,
         setDebt,
         setIncome,
         setExtraLoan,
         setSquareMeters,
         setFilters,
+        setSelectedPostcode,
       }}
     >
       {children}
