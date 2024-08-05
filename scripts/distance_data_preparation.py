@@ -48,7 +48,7 @@ def get_nearest_location_for_postcode(postcode: str, distance_postcodes_destinat
     """
     nearest_location = {}
     nearest_location_per_category = {}
-    travel_types = ["walking", "driving"]
+    travel_types = ["walking", "bicycling", "transit", "driving"]
     categories = ["vinmonopolet", "shopping_mall"]
     
     # Find the nearest location for each category for the given postcode
