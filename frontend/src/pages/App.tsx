@@ -1,14 +1,13 @@
-import Filters from '@/components/Filters';
 import Map from '@/components/Map';
-import Sidebar from '@/components/Sidebar';
 import { MapProvider } from '@/services/MapContext';
+import Layout from './Layout';
 
 export default function App() {
   return (
     <MapProvider>
-      <Sidebar>
+      <Layout>
         <Map />
-      </Sidebar>
+      </Layout>
     </MapProvider>
   );
 }

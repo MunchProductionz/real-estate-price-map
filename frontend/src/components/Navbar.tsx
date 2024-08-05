@@ -18,7 +18,7 @@ export default function Navbar({
         // className={cn('fixed top-2 transition-all duration-300')}
         onClick={() => setExpanded((prev) => !prev)}
       >
-        {expanded ? <X strokeWidth={'3px'} /> : <Menu strokeWidth={'3px'} />}
+        <Menu strokeWidth={'3px'} />
       </Button>
       <ModeToggle />
     </div>

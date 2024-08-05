@@ -1,3 +1,8 @@
+import {
+  LocationDirectory,
+  NearestLocation,
+  TravelData,
+} from '@/lib/types/distanceData';
 import { useMap } from '@/services/MapContext';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useQuery } from '@tanstack/react-query';
@@ -9,10 +14,14 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const { maxPrice, squareMeters } = useMap();
+  const { maxPrice, squareMeters, filters } = useMap();
 
   const { data: geoJsonData } = useQuery<any>({
     queryKey: ['postcodes.json'],
+  });
+
+  const { data: distanceData } = useQuery<LocationDirectory>({
+    queryKey: ['distance_data.json'],
   });
 
   useEffect(() => {
@@ -31,7 +40,44 @@ export default function MapComponent() {
             const averagePrice = feature.getProperty(
               'averagePrice' + squareMeters + 'm2',
             ) as number;
-            if (maxPrice > averagePrice) {
+
+            const nearestLocation =
+              distanceData?.[feature.getProperty('postnummer') as string]
+                .nearest_location;
+            let filtered = false;
+
+            if (nearestLocation) {
+              // Define specific keys using keyof
+              const locationKeys: Array<keyof NearestLocation> = [
+                'vinmonopolet',
+                'shopping_mall',
+              ];
+
+              // Iterate over location keys
+              for (const location of locationKeys) {
+                const travelData = nearestLocation[location].travel_data;
+
+                let maxDistance = Infinity;
+                let maxTime = Infinity;
+                let travelMethod = 'driving';
+                if (filters[location]?.active) {
+                  maxDistance = filters[location]?.maxDistance ?? Infinity;
+                  maxTime = filters[location]?.maxTime ?? Infinity;
+                  travelMethod = filters[location]?.mode ?? 'driving';
+                }
+
+                const distance =
+                  (travelData[travelMethod as 'walking' | 'driving']?.distance
+                    .kilometers ?? 0) < maxDistance;
+                const time =
+                  (travelData[travelMethod as 'walking' | 'driving']?.duration
+                    .minutes ?? 0) < maxTime;
+
+                if (!distance || !time) filtered = true;
+              }
+            }
+
+            if (maxPrice > averagePrice && !filtered) {
               // Affordability check
               if (maxPrice > averagePrice * 1.2) {
                 // 20% buffer for high affordability (potential bidding war)
@@ -92,7 +138,7 @@ export default function MapComponent() {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters]);
+  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters]);
 
   useEffect(() => {
     const map = mapRef.current;
