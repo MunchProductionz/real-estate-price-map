@@ -1,7 +1,9 @@
 import Filters from '@/components/Filters';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
+import { Button } from '@/components/shadcn/ui/button';
 import { cn } from '@/lib/utils';
+import { Filter } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -18,11 +20,14 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         <Navbar expanded={expanded} setExpanded={setExpanded} />
         {children}
-        {/* ToDo  Velge om vi skal ha grået ut når sidebar er 
-                  åpen på liten skjerm (koden under) */}
-        {/* {expanded && (
-          <div className='fixed inset-0 bg-black bg-opacity-50 sm:hidden' />
-        )} */}
+        <Button
+          size='icon'
+          variant='outline'
+          className='fixed bottom-0 m-2'
+          onClick={() => setFilterView((prev) => !prev)}
+        >
+          <Filter />
+        </Button>
         <Filters
           filterView={filterView}
           expanded={expanded}
