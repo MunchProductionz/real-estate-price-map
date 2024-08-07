@@ -7,8 +7,8 @@ from pprint import pprint
 def clean_geojson(poststed: str, city: str) -> None:
     
     # Paths
-    geojson_path = f"../data/geojson/postnummers_{poststed}.geojson"
-    geojson_cleaned_path = f"../data/postcodes_cleaned/postnummers_{poststed}.json"
+    geojson_path = f"../data/geojson/postcodes_{poststed}.geojson"
+    geojson_cleaned_path = f"../data/postcodes_cleaned/postcodes_{poststed}.json"
 
     # Load geojson
     with open(geojson_path, "r") as f:
