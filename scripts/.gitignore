@@ -3,4 +3,3 @@ venv/
 __pycache__/
 
 data/postcodes_cleaned/
-data/postcodes_finalized/
