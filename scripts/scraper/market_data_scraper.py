@@ -22,7 +22,8 @@ def print_estimated_time_of_retrieval(cities: list, max_requests_per_second: int
     total_number_of_postcodes = 0
     city_times = {}
     for city in cities:
-        postcodes_cleaned_path = os.path.join(os.getcwd(), f"../data/postcodes_cleaned/postcodes_{city}.json")
+        # postcodes_cleaned_path = os.path.join(os.getcwd(), f"../data/postcodes_cleaned/postcodes_{city}.json")
+        postcodes_cleaned_path = os.path.join(os.getcwd(), f"data/postcodes_cleaned/postcodes_{city}.json")          # Use when running script from prepare_postcodes.py
         with open(postcodes_cleaned_path, "r") as file:
             postcodes_data = json.load(file)
         
@@ -198,7 +199,8 @@ async def get_market_data_from_post_codes_from_geojson(city: str) -> None:
     max_requests_per_second = 5
     
     # Get postcodes data
-    postcodes_cleaned_path = os.path.join(os.getcwd(), f"../data/postcodes_cleaned/postcodes_{city}.json")
+    # postcodes_cleaned_path = os.path.join(os.getcwd(), f"../data/postcodes_cleaned/postcodes_{city}.json")
+    postcodes_cleaned_path = os.path.join(os.getcwd(), f"data/postcodes_cleaned/postcodes_{city}.json")      # Use when running script from prepare_postcodes.py
     with open(postcodes_cleaned_path, "r") as file:
         postcodes_data = json.load(file)
     
@@ -211,9 +213,9 @@ async def get_market_data_from_post_codes_from_geojson(city: str) -> None:
                         max_at_once=max_requests_at_once, # Limit maximum number of concurrently running tasks.
                         max_per_second=max_requests_per_second,  # Limit request rate to not overload the server.
                     )
-    print(type(results))
+
+    # Get market data from responses
     for i, response in enumerate(results):
-        print(type(response))
         results[i] = await get_market_data_from_response(response, post_code=postcodes_data["features"][i]["properties"]["postnummer"])
     
     # Update postcodes data and market data to file
@@ -222,12 +224,14 @@ async def get_market_data_from_post_codes_from_geojson(city: str) -> None:
         postcodes_data, postcodes_market_data = await add_market_data_to_dicts(i, postcodes_data, postcodes_market_data, results)     # TODO: Check if "feature" is enough
 
     # Save updated post codes data
-    postcodes_finalized_path = os.path.join(os.getcwd(), f"../data/postcodes_finalized/postcodes_{city}.json")
+    # postcodes_finalized_path = os.path.join(os.getcwd(), f"../data/postcodes_finalized/postcodes_{city}.json")
+    postcodes_finalized_path = os.path.join(os.getcwd(), f"data/postcodes_finalized/postcodes_{city}.json")      # Use when running script from prepare_postcodes.py
     with open(postcodes_finalized_path, "w") as file:
         json.dump(postcodes_data, file, indent=2)
     
     # Save market data to file
-    postcodes_market_data_path = os.path.join(os.getcwd(), f"../data/postcodes_market_data_finalized/postcodes_market_data_{city}.json")
+    # postcodes_market_data_path = os.path.join(os.getcwd(), f"../data/postcodes_market_data_finalized/postcodes_market_data_{city}.json")
+    postcodes_market_data_path = os.path.join(os.getcwd(), f"data/postcodes_market_data_finalized/postcodes_market_data_{city}.json")        # Use when running script from prepare_postcodes.py
     with open(postcodes_market_data_path, "w") as file:
         file.write(json.dumps(postcodes_market_data, indent=2))
         file.write("\n")
