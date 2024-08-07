@@ -16,6 +16,9 @@ def print_estimated_time_of_retrieval(cities: list, max_requests_per_second: int
     Args:
         cities (list): List of cities.
         max_requests_per_second (int): Maximum number of requests per second. 
+        
+    Returns:
+        None
     """
     
     # Estimated time of retrieval for each city
