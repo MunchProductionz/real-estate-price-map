@@ -17,18 +17,11 @@ export default function MapComponent() {
     maxPrice,
     squareMeters,
     filters,
-    selectedPostcode,
     selectedPostcodeRef,
+    geoJsonData,
+    distanceData,
     setSelectedPostcode,
   } = useMap();
-
-  const { data: geoJsonData } = useQuery<any>({
-    queryKey: ['postcodes.json'],
-  });
-
-  const { data: distanceData } = useQuery<LocationDirectory>({
-    queryKey: ['distance_data.json'],
-  });
 
   function setColor({ feature }: { feature: google.maps.Data.Feature }) {
     const averagePrice = feature.getProperty(

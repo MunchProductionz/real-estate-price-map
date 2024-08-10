@@ -1,3 +1,5 @@
+import { LocationDirectory } from '@/lib/types/distanceData';
+import { useQuery } from '@tanstack/react-query';
 import {
   Context,
   Dispatch,
@@ -32,6 +34,8 @@ export type MapContextType = {
   filters: Filters;
   selectedPostcode: string | null;
   selectedPostcodeRef: MutableRefObject<string | null>;
+  geoJsonData: any;
+  distanceData: LocationDirectory | undefined;
   setEquity: Dispatch<SetStateAction<number>>;
   setDebt: Dispatch<SetStateAction<number>>;
   setIncome: Dispatch<SetStateAction<number>>;
@@ -56,6 +60,14 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
     null,
   );
 
+  const { data: geoJsonData } = useQuery<any>({
+    queryKey: ['postcodes.json'],
+  });
+
+  const { data: distanceData } = useQuery<LocationDirectory>({
+    queryKey: ['distance_data.json'],
+  });
+
   const selectedPostcodeRef = useRef(selectedPostcode);
   const setSelectedPostcode = (data: string | null) => {
     selectedPostcodeRef.current = data;
@@ -78,6 +90,8 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         filters,
         selectedPostcode,
         selectedPostcodeRef,
+        geoJsonData,
+        distanceData,
         setEquity,
         setDebt,
         setIncome,
