@@ -1,4 +1,4 @@
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Dispatch, SetStateAction } from 'react';
 import ModeToggle from './ModeToggle';
 import { Button } from './shadcn/ui/button';
