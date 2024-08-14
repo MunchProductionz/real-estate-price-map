@@ -1,10 +1,20 @@
-import { LocationDirectory, NearestLocation } from '@/lib/types/distanceData';
+import { NearestLocation } from '@/lib/types/distanceData';
 import { useMap } from '@/services/MapContext';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
 
 export default function MapComponent() {
+  const {
+    maxPrice,
+    squareMeters,
+    filters,
+    selectedPostcodeRef,
+    geoJsonData,
+    distanceData,
+    city,
+    cityCentrums,
+    setSelectedPostcode,
+  } = useMap();
   const ZOOM_THRESHOLD = 15; // Minimum zoom level to show labels
   const mapCenterRef = useRef<{ lat: number; lng: number }>({
     lat: 59.93,
@@ -13,25 +23,19 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const {
-    maxPrice,
-    squareMeters,
-    filters,
-    selectedPostcodeRef,
-    geoJsonData,
-    distanceData,
-    setSelectedPostcode,
-  } = useMap();
 
   function setColor({ feature }: { feature: google.maps.Data.Feature }) {
     const averagePrice = feature.getProperty(
       'averagePrice' + squareMeters + 'm2',
     ) as number;
 
-    const nearestLocation =
-      distanceData?.[feature.getProperty('postnummer') as string]
-        .nearest_location;
+    let nearestLocation = null;
     let filtered = false;
+    if (city === 'oslo') {
+      nearestLocation =
+        distanceData?.[feature.getProperty('postnummer') as string]
+          ?.nearest_location;
+    }
 
     if (nearestLocation) {
       // Define specific keys using keyof
@@ -63,7 +67,6 @@ export default function MapComponent() {
         if (!distance || !time) filtered = true;
       }
     }
-
     if (maxPrice > averagePrice && !filtered) {
       // Affordability check
       if (maxPrice > averagePrice * 1.2) {
@@ -241,6 +244,16 @@ export default function MapComponent() {
       };
     }
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (map && cityCentrums) {
+      map.setCenter({
+        lat: cityCentrums[city].lat,
+        lng: cityCentrums[city].lng,
+      });
+    }
+  }, [cityCentrums, city]);
 
   return (
     <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>

@@ -1,0 +1,34 @@
+{
+  "trondheim": {
+    "lat": 63.41,
+    "lng": 10.39
+  },
+  "bergen": {
+    "lat": 60.39,
+    "lng": 5.32
+  },
+  "bodo": {
+    "lat": 60.39,
+    "lng": 5.32
+  },
+  "drammen": {
+    "lat": 60.39,
+    "lng": 5.32
+  },
+  "kristiansand": {
+    "lat": 60.39,
+    "lng": 5.32
+  },
+  "oslo": {
+    "lat": 59.93,
+    "lng": 10.75
+  },
+  "stavanger": {
+    "lat": 60.39,
+    "lng": 5.32
+  },
+  "tromso": {
+    "lat": 60.39,
+    "lng": 5.32
+  }
+}

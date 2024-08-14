@@ -1,4 +1,6 @@
-import { LocationDirectory } from '@/lib/types/distanceData';
+import { Feature, GeoJsonData } from '@/lib/types/GeoJsonData';
+import { CityCentrums } from '@/lib/types/cityCentrums';
+import { LocationDirectory, PostalCodeEntry } from '@/lib/types/distanceData';
 import { useQuery } from '@tanstack/react-query';
 import {
   Context,
@@ -24,6 +26,16 @@ interface Filters {
   shopping_mall?: DistanceFilter;
 }
 
+type City =
+  | 'bergen'
+  | 'bodo'
+  | 'drammen'
+  | 'kristiansand'
+  | 'oslo'
+  | 'stavanger'
+  | 'tromso'
+  | 'trondheim';
+
 export type MapContextType = {
   equity: number;
   debt: number;
@@ -36,13 +48,17 @@ export type MapContextType = {
   selectedPostcodeRef: MutableRefObject<string | null>;
   geoJsonData: any;
   distanceData: LocationDirectory | undefined;
+  selectedFeature: Feature | undefined;
+  selectedDistance: PostalCodeEntry | undefined;
+  city: City;
+  cityCentrums?: CityCentrums;
   setEquity: Dispatch<SetStateAction<number>>;
   setDebt: Dispatch<SetStateAction<number>>;
   setIncome: Dispatch<SetStateAction<number>>;
   setExtraLoan: Dispatch<SetStateAction<number>>;
   setSquareMeters: Dispatch<SetStateAction<number>>;
   setFilters: Dispatch<SetStateAction<Filters>>;
-  // _setSelectedPostcode: Dispatch<SetStateAction<string | null>>;
+  setCity: Dispatch<SetStateAction<City>>;
   setSelectedPostcode: (data: string | null) => void;
 };
 
@@ -59,19 +75,34 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
   const [selectedPostcode, _setSelectedPostcode] = useState<string | null>(
     null,
   );
+  const [selectedFeature, setSelectedFeature] = useState<Feature | undefined>();
+  const [selectedDistance, setSelectedDistance] = useState<
+    PostalCodeEntry | undefined
+  >();
+  const [city, setCity] = useState<City>('oslo');
 
-  const { data: geoJsonData } = useQuery<any>({
-    queryKey: ['postcodes.json'],
+  const { data: geoJsonData } = useQuery<GeoJsonData>({
+    queryKey: [`postcodes_finalized/postcodes_${city}.json`],
   });
 
   const { data: distanceData } = useQuery<LocationDirectory>({
     queryKey: ['distance_data.json'],
   });
 
+  const { data: cityCentrums } = useQuery<CityCentrums>({
+    queryKey: ['city_centrums.json'],
+  });
+
   const selectedPostcodeRef = useRef(selectedPostcode);
   const setSelectedPostcode = (data: string | null) => {
     selectedPostcodeRef.current = data;
     _setSelectedPostcode(data);
+    const feature = geoJsonData?.features.find(
+      (feature) => feature.properties.postnummer === data,
+    );
+    setSelectedFeature(feature);
+    const selectedDistance = data ? distanceData?.[data] : undefined;
+    setSelectedDistance(selectedDistance);
   };
 
   useEffect(() => {
@@ -92,6 +123,10 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         selectedPostcodeRef,
         geoJsonData,
         distanceData,
+        selectedFeature,
+        selectedDistance,
+        city,
+        cityCentrums,
         setEquity,
         setDebt,
         setIncome,
@@ -99,6 +134,7 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         setSquareMeters,
         setFilters,
         setSelectedPostcode,
+        setCity,
       }}
     >
       {children}
