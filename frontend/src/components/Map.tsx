@@ -1,8 +1,4 @@
-import {
-  LocationDirectory,
-  NearestLocation,
-  TravelData,
-} from '@/lib/types/distanceData';
+import { LocationDirectory, NearestLocation } from '@/lib/types/distanceData';
 import { useMap } from '@/services/MapContext';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { useQuery } from '@tanstack/react-query';

@@ -1,10 +1,10 @@
 import { cn } from '@/lib/utils';
+import { useMap } from '@/services/MapContext';
 import { Car, LucideIcon, ShoppingCart, Wine, X } from 'lucide-react';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { Button } from './shadcn/ui/button';
-import { Checkbox } from './shadcn/ui/checkbox';
-import { Switch } from './shadcn/ui/switch';
 import { FaPersonWalking } from 'react-icons/fa6';
+import { Button } from './shadcn/ui/button';
+import { Input } from './shadcn/ui/input';
 import {
   Select,
   SelectContent,
@@ -14,9 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from './shadcn/ui/select';
-import { Input } from './shadcn/ui/input';
-import useMediaQuery from '@/lib/hooks/useMediaQueries';
-import { useMap } from '@/services/MapContext';
+import { Switch } from './shadcn/ui/switch';
 
 function Filter({
   Icon,
@@ -107,7 +105,6 @@ function Filter({
 
 export default function Filters({
   filterView,
-  expanded,
   setFilterView,
 }: {
   filterView: boolean;

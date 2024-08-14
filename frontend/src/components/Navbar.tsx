@@ -1,10 +1,9 @@
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Dispatch, SetStateAction } from 'react';
 import ModeToggle from './ModeToggle';
 import { Button } from './shadcn/ui/button';
 
 export default function Navbar({
-  expanded,
   setExpanded,
 }: {
   expanded: boolean;

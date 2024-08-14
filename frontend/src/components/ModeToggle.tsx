@@ -7,8 +7,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/shadcn/ui/dropdown-menu';
-import { useTheme } from '@/services/ThemeProvider';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/services/ThemeProvider';
 
 export default function ModeToggle({ className }: { className?: string }) {
   const { setTheme } = useTheme();
