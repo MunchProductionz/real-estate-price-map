@@ -4,12 +4,13 @@ import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import { Button } from '@/components/shadcn/ui/button';
 import { cn } from '@/lib/utils';
+import { useMap } from '@/services/MapContext';
 import { Filter } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [expanded, setExpanded] = useState(true);
-  const [filterView, setFilterView] = useState(false);
+  const { setSelectedPostcode, filterView, setFilterView } = useMap();
   return (
     <div className='flex min-h-screen bg-background'>
       <Sidebar expanded={expanded} />
@@ -25,7 +26,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           size='icon'
           variant='outline'
           className='fixed bottom-0 m-2'
-          onClick={() => setFilterView((prev) => !prev)}
+          onClick={() => {
+            setFilterView((prev) => !prev);
+            setSelectedPostcode(null);
+          }}
         >
           <Filter />
         </Button>

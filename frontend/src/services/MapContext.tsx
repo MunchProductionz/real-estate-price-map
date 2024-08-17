@@ -1,5 +1,6 @@
 import { Feature, GeoJsonData } from '@/lib/types/GeoJsonData';
-import { CityCentrums } from '@/lib/types/cityCentrums';
+import { CityCenters } from '@/lib/types/cityCenters';
+import { City } from '@/lib/types/cityCenters';
 import { LocationDirectory, PostalCodeEntry } from '@/lib/types/distanceData';
 import { useQuery } from '@tanstack/react-query';
 import {
@@ -26,16 +27,6 @@ interface Filters {
   shopping_mall?: DistanceFilter;
 }
 
-type City =
-  | 'bergen'
-  | 'bodo'
-  | 'drammen'
-  | 'kristiansand'
-  | 'oslo'
-  | 'stavanger'
-  | 'tromso'
-  | 'trondheim';
-
 export type MapContextType = {
   equity: number;
   debt: number;
@@ -51,7 +42,8 @@ export type MapContextType = {
   selectedFeature: Feature | undefined;
   selectedDistance: PostalCodeEntry | undefined;
   city: City;
-  cityCentrums?: CityCentrums;
+  cityCenters?: CityCenters;
+  filterView: boolean;
   setEquity: Dispatch<SetStateAction<number>>;
   setDebt: Dispatch<SetStateAction<number>>;
   setIncome: Dispatch<SetStateAction<number>>;
@@ -59,6 +51,7 @@ export type MapContextType = {
   setSquareMeters: Dispatch<SetStateAction<number>>;
   setFilters: Dispatch<SetStateAction<Filters>>;
   setCity: Dispatch<SetStateAction<City>>;
+  setFilterView: Dispatch<SetStateAction<boolean>>;
   setSelectedPostcode: (data: string | null) => void;
 };
 
@@ -71,6 +64,7 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
   const [extraLoan, setExtraLoan] = useState(0);
   const [squareMeters, setSquareMeters] = useState(60);
   const [maxPrice, setMaxPrice] = useState(0);
+  const [filterView, setFilterView] = useState(false);
   const [filters, setFilters] = useState<Filters>({});
   const [selectedPostcode, _setSelectedPostcode] = useState<string | null>(
     null,
@@ -89,8 +83,8 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
     queryKey: ['distance_data.json'],
   });
 
-  const { data: cityCentrums } = useQuery<CityCentrums>({
-    queryKey: ['city_centrums.json'],
+  const { data: cityCenters } = useQuery<CityCenters>({
+    queryKey: ['city_centers.json'],
   });
 
   const selectedPostcodeRef = useRef(selectedPostcode);
@@ -126,7 +120,8 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         selectedFeature,
         selectedDistance,
         city,
-        cityCentrums,
+        cityCenters,
+        filterView,
         setEquity,
         setDebt,
         setIncome,
@@ -135,6 +130,7 @@ export function MapProvider({ children }: { children: React.ReactNode }) {
         setFilters,
         setSelectedPostcode,
         setCity,
+        setFilterView,
       }}
     >
       {children}

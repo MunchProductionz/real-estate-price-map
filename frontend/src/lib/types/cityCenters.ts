@@ -1,4 +1,14 @@
-export interface CityCentrums {
+export type City =
+  | 'bergen'
+  | 'bodo'
+  | 'drammen'
+  | 'kristiansand'
+  | 'oslo'
+  | 'stavanger'
+  | 'tromso'
+  | 'trondheim';
+
+export interface CityCenters {
   trondheim: Trondheim;
   bergen: Bergen;
   bodo: Bodo;

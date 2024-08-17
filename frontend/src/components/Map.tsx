@@ -12,8 +12,9 @@ export default function MapComponent() {
     geoJsonData,
     distanceData,
     city,
-    cityCentrums,
+    cityCenters,
     setSelectedPostcode,
+    setFilterView,
   } = useMap();
   const ZOOM_THRESHOLD = 15; // Minimum zoom level to show labels
   const mapCenterRef = useRef<{ lat: number; lng: number }>({
@@ -122,6 +123,7 @@ export default function MapComponent() {
                 return;
               }
               setSelectedPostcode(postcode);
+              setFilterView(false);
               map.data.revertStyle();
               map.data.overrideStyle(event.feature, {
                 fillColor: 'DarkGray', // #A9A9A9
@@ -164,7 +166,7 @@ export default function MapComponent() {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters]);
+  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters, city]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -247,13 +249,13 @@ export default function MapComponent() {
 
   useEffect(() => {
     const map = mapRef.current;
-    if (map && cityCentrums) {
+    if (map && cityCenters) {
       map.setCenter({
-        lat: cityCentrums[city].lat,
-        lng: cityCentrums[city].lng,
+        lat: cityCenters[city].lat,
+        lng: cityCenters[city].lng,
       });
     }
-  }, [cityCentrums, city]);
+  }, [cityCenters, city]);
 
   return (
     <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
