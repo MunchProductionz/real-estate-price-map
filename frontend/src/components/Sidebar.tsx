@@ -1,16 +1,7 @@
 import { cn } from '@/lib/utils';
-import { Filter } from 'lucide-react';
-import { Dispatch, SetStateAction } from 'react';
 import Inputs from './Inputs';
-import { Button } from './shadcn/ui/button';
 
-export default function Sidebar({
-  expanded,
-  setFilterView,
-}: {
-  expanded: boolean;
-  setFilterView: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function Sidebar({ expanded }: { expanded: boolean }) {
   return (
     <div className='fixed z-30 h-screen'>
       <div
@@ -21,15 +12,6 @@ export default function Sidebar({
       >
         <div className='flex h-full w-64 flex-col items-end justify-between'>
           <Inputs />
-          <div className='m-4'>
-            <Button
-              size='icon'
-              variant='ghost'
-              onClick={() => setFilterView((prev) => !prev)}
-            >
-              <Filter />
-            </Button>
-          </div>
         </div>
       </div>
     </div>

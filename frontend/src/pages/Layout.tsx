@@ -1,15 +1,19 @@
+import DetailedInformation from '@/components/DetailedInformation';
 import Filters from '@/components/Filters';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
+import { Button } from '@/components/shadcn/ui/button';
 import { cn } from '@/lib/utils';
+import { useMap } from '@/services/MapContext';
+import { Filter } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [expanded, setExpanded] = useState(true);
-  const [filterView, setFilterView] = useState(false);
+  const { setSelectedPostcode, filterView, setFilterView } = useMap();
   return (
     <div className='flex min-h-screen bg-background'>
-      <Sidebar expanded={expanded} setFilterView={setFilterView} />
+      <Sidebar expanded={expanded} />
       <div
         className={cn(
           'w-full transition-all duration-300',
@@ -18,16 +22,23 @@ export default function Layout({ children }: { children: ReactNode }) {
       >
         <Navbar expanded={expanded} setExpanded={setExpanded} />
         {children}
-        {/* ToDo  Velge om vi skal ha grået ut når sidebar er 
-                  åpen på liten skjerm (koden under) */}
-        {/* {expanded && (
-          <div className='fixed inset-0 bg-black bg-opacity-50 sm:hidden' />
-        )} */}
+        <Button
+          size='icon'
+          variant='outline'
+          className='fixed bottom-0 m-2'
+          onClick={() => {
+            setFilterView((prev) => !prev);
+            setSelectedPostcode(null);
+          }}
+        >
+          <Filter />
+        </Button>
         <Filters
           filterView={filterView}
           expanded={expanded}
           setFilterView={setFilterView}
         />
+        <DetailedInformation />
       </div>
     </div>
   );

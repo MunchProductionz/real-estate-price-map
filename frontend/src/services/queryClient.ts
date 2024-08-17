@@ -6,7 +6,9 @@ const queryClient = new QueryClient({
     queries: {
       queryFn: async ({ queryKey }) => {
         const [url] = queryKey;
-        const { data } = await axios.get(`data/${url as string}`);
+        const { data } = await axios.get(
+          `http://localhost:5173/data/${url as string}`,
+        );
         return data;
       },
     },
