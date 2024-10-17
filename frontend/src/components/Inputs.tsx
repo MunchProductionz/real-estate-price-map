@@ -41,10 +41,10 @@ export default function Inputs() {
   return (
     <div className='flex w-full flex-col items-center gap-4 p-4'>
       <div className='w-full space-y-1'>
-        <Label>Eiendeler</Label>
+        <Label>Egenkapital</Label>
         <Input
           type='text'
-          placeholder='Eiendeler'
+          placeholder='Egenkapital'
           value={formatNumberWithSpaces(equity)}
           onChange={handleInputChange(setEquity)}
         />
@@ -60,7 +60,7 @@ export default function Inputs() {
         />
       </div>
       <div className='w-full'>
-        <Label>Ekstra lån</Label>
+        <Label>Ekstra lån gjennom familie</Label>
         <Input
           type='text'
           placeholder='Ekstra lån'
@@ -69,10 +69,10 @@ export default function Inputs() {
         />
       </div>
       <div className='w-full'>
-        <Label>Gjeld</Label>
+        <Label>Eksisterende gjeld</Label>
         <Input
           type='text'
-          placeholder='Gjeld'
+          placeholder='Eksisterende gjeld'
           value={formatNumberWithSpaces(debt)}
           onChange={handleInputChange(setDebt)}
         />
