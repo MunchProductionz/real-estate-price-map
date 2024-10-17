@@ -49,6 +49,15 @@ export default function Inputs() {
           onChange={handleInputChange(setEquity)}
         />
       </div>
+      <div className='w-full'>
+        <Label>Ekstra lån gjennom familie</Label>
+        <Input
+          type='text'
+          placeholder='Ekstra lån'
+          value={formatNumberWithSpaces(extraLoan)}
+          onChange={handleInputChange(setExtraLoan)}
+        />
+      </div>
       <div className='w-full space-x-1 space-y-3'>
         <Label>Lønn</Label>
         <Label>{formatNumberWithSpaces(income)}</Label>
@@ -57,15 +66,6 @@ export default function Inputs() {
           max={2000000}
           step={50000}
           onValueChange={(e: number[]) => setIncome(e[0])}
-        />
-      </div>
-      <div className='w-full'>
-        <Label>Ekstra lån gjennom familie</Label>
-        <Input
-          type='text'
-          placeholder='Ekstra lån'
-          value={formatNumberWithSpaces(extraLoan)}
-          onChange={handleInputChange(setExtraLoan)}
         />
       </div>
       <div className='w-full'>
