@@ -41,10 +41,10 @@ export default function Inputs() {
   return (
     <div className='flex w-full flex-col items-center gap-4 p-4'>
       <div className='w-full space-y-1'>
-        <Label>Eiendeler</Label>
+        <Label>Egenkapital</Label>
         <Input
           type='text'
-          placeholder='Eiendeler'
+          placeholder='Egenkapital'
           value={formatNumberWithSpaces(equity)}
           onChange={handleInputChange(setEquity)}
         />

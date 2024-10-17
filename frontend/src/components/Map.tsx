@@ -16,16 +16,18 @@ export default function MapComponent() {
     setSelectedPostcode,
     setFilterView,
   } = useMap();
-  const ZOOM_THRESHOLD = 15; // Minimum zoom level to show labels
   const mapCenterRef = useRef<{ lat: number; lng: number }>({
     lat: 59.93,
     lng: 10.75,
   });
   const mapRef = useRef<google.maps.Map | null>(null);
-  const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const geoJsonAdded = useRef(false); // Flag to track if GeoJSON is already added
 
   function setColor({ feature }: { feature: google.maps.Data.Feature }) {
+    const map = mapRef.current!;
+    map.data.revertStyle(feature);
+
     const averagePrice = feature.getProperty(
       'averagePrice' + squareMeters + 'm2',
     ) as number;
@@ -102,128 +104,42 @@ export default function MapComponent() {
         setTimeout(() => {
           const map = mapRef.current!;
 
-          // Clear existing data to avoid stacking styles
-          map.data.forEach((feature) => {
-            map.data.remove(feature);
-          });
+          if (!geoJsonAdded.current) {
+            map.data.addGeoJson(geoJsonData);
 
-          map.data.addGeoJson(geoJsonData);
+            map.data.addListener(
+              'click',
+              (event: google.maps.Data.MouseEvent) => {
+                const postcode = event.feature.getProperty(
+                  'postnummer',
+                ) as string;
+                if (postcode === selectedPostcodeRef.current) {
+                  setSelectedPostcode(null);
+                  map.data.revertStyle();
+                  return;
+                }
+                setSelectedPostcode(postcode);
+                setFilterView(false);
+                map.data.revertStyle();
+                map.data.overrideStyle(event.feature, {
+                  fillColor: 'DarkGray', // #A9A9A9
+                  fillOpacity: 0.3,
+                  zIndex: 2,
+                });
+              },
+            );
+            geoJsonAdded.current = true;
+          }
+
           map.data.setStyle((feature) => {
             return setColor({ feature });
           });
-          map.data.addListener(
-            'click',
-            (event: google.maps.Data.MouseEvent) => {
-              const postcode = event.feature.getProperty(
-                'postnummer',
-              ) as string;
-              if (postcode === selectedPostcodeRef.current) {
-                setSelectedPostcode(null);
-                map.data.revertStyle();
-                return;
-              }
-              setSelectedPostcode(postcode);
-              setFilterView(false);
-              map.data.revertStyle();
-              map.data.overrideStyle(event.feature, {
-                fillColor: 'DarkGray', // #A9A9A9
-                fillOpacity: 0.3,
-                zIndex: 2,
-              });
-            },
-          );
-
-          // Create markers for labels
-          const newMarkers: google.maps.Marker[] = [];
-          map.data.forEach((feature) => {
-            const bounds = new google.maps.LatLngBounds();
-            feature
-              .getGeometry()
-              ?.forEachLatLng((latLng: google.maps.LatLng) => {
-                bounds.extend(latLng);
-              });
-            const center = bounds.getCenter();
-            const postnummer = feature.getProperty('postnummer') as string;
-            const marker = new google.maps.Marker({
-              position: center,
-              map: mapRef.current,
-              label: {
-                text: postnummer,
-                color: 'black',
-                fontSize: '14px',
-                fontWeight: 'bold',
-              },
-              icon: 'http://maps.google.com/mapfiles/ms/micons/blank.png', // Blank icon to avoid default markers
-              visible: false, // Initially set markers to not visible
-            });
-
-            newMarkers.push(marker);
-          });
-
-          setMarkers(newMarkers);
         }, 500); // Adjust the delay time as needed
       } catch (error) {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
   }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters, city]);
-
-  useEffect(() => {
-    const map = mapRef.current;
-    if (map) {
-      const handleZoomChange = () => {
-        const zoom = map.getZoom();
-        if (!zoom) return;
-        markers.forEach((marker) => {
-          marker.setMap(zoom >= ZOOM_THRESHOLD ? map : null);
-        });
-      };
-
-      const updateMarkersVisibility = () => {
-        if (!map) return;
-        const bounds = map.getBounds();
-        if (!bounds) return;
-
-        markers.forEach((marker) => {
-          const position = marker.getPosition();
-          const zoom = map.getZoom();
-          if (!zoom) return;
-          if (position) {
-            marker.setVisible(
-              bounds.contains(position) && zoom >= ZOOM_THRESHOLD,
-            );
-          }
-        });
-      };
-
-      // Add zoom change listener
-      const zoomListener = google.maps.event.addListener(
-        map,
-        'zoom_changed',
-        () => {
-          handleZoomChange();
-          updateMarkersVisibility();
-        },
-      );
-
-      // Add bounds change listener to update marker visibility based on viewport
-      const boundsListener = google.maps.event.addListener(
-        map,
-        'bounds_changed',
-        updateMarkersVisibility,
-      );
-
-      // Initial call to set visibility based on the current zoom level and viewport
-      handleZoomChange();
-      updateMarkersVisibility();
-
-      return () => {
-        // Clean up listeners on component unmount
-        google.maps.event.removeListener(zoomListener);
-        google.maps.event.removeListener(boundsListener);
-      };
-    }
-  }, [markers]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -271,9 +187,7 @@ export default function MapComponent() {
           mapRef.current = map;
           setIsMapLoaded(true);
         }}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-      </GoogleMap>
+      ></GoogleMap>
     </LoadScript>
   );
 }
