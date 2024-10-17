@@ -16,13 +16,11 @@ export default function MapComponent() {
     setSelectedPostcode,
     setFilterView,
   } = useMap();
-  const ZOOM_THRESHOLD = 15; // Minimum zoom level to show labels
   const mapCenterRef = useRef<{ lat: number; lng: number }>({
     lat: 59.93,
     lng: 10.75,
   });
   const mapRef = useRef<google.maps.Map | null>(null);
-  const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   function setColor({ feature }: { feature: google.maps.Data.Feature }) {
@@ -39,13 +37,11 @@ export default function MapComponent() {
     }
 
     if (nearestLocation) {
-      // Define specific keys using keyof
       const locationKeys: Array<keyof NearestLocation> = [
         'vinmonopolet',
         'shopping_mall',
       ];
 
-      // Iterate over location keys
       for (const location of locationKeys) {
         const travelData = nearestLocation[location].travel_data;
 
@@ -68,184 +64,73 @@ export default function MapComponent() {
         if (!distance || !time) filtered = true;
       }
     }
+
     if (maxPrice > averagePrice && !filtered) {
-      // Affordability check
       if (maxPrice > averagePrice * 1.2) {
-        // 20% buffer for high affordability (potential bidding war)
         return {
-          fillColor: 'RoyalBlue', // #4169E1
+          fillColor: 'RoyalBlue',
           fillOpacity: 0.3,
-          strokeColor: 'MidnightBlue', // #191970
+          strokeColor: 'MidnightBlue',
           strokeWeight: 0.1,
         };
       } else {
         return {
-          fillColor: 'Salmon', // #FA8072
+          fillColor: 'Salmon',
           fillOpacity: 0.3,
-          strokeColor: 'Maroon', // #800000
+          strokeColor: 'Maroon',
           strokeWeight: 0.1,
         };
       }
     } else {
       return {
-        fillColor: 'black', // #000000
+        fillColor: 'black',
         fillOpacity: 0.5,
-        strokeColor: 'black', // #000000
+        strokeColor: 'black',
         strokeWeight: 0.1,
       };
     }
   }
 
   useEffect(() => {
+    console.log(geoJsonData);
+    console.log(mapRef.current);
+    console.log(isMapLoaded);
     if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
-        setTimeout(() => {
-          const map = mapRef.current!;
+        const map = mapRef.current!;
+        map.data.forEach((feature) => {
+          map.data.remove(feature);
+        });
+        map.data.addGeoJson(geoJsonData);
 
-          // Clear existing data to avoid stacking styles
-          map.data.forEach((feature) => {
-            map.data.remove(feature);
-          });
-
-          map.data.addGeoJson(geoJsonData);
-          map.data.setStyle((feature) => {
-            return setColor({ feature });
-          });
-          map.data.addListener(
-            'click',
-            (event: google.maps.Data.MouseEvent) => {
-              const postcode = event.feature.getProperty(
-                'postnummer',
-              ) as string;
-              if (postcode === selectedPostcodeRef.current) {
-                setSelectedPostcode(null);
-                map.data.revertStyle();
-                return;
-              }
-              setSelectedPostcode(postcode);
-              setFilterView(false);
-              map.data.revertStyle();
-              map.data.overrideStyle(event.feature, {
-                fillColor: 'DarkGray', // #A9A9A9
-                fillOpacity: 0.3,
-                zIndex: 2,
-              });
-            },
-          );
-
-          // Create markers for labels
-          const newMarkers: google.maps.Marker[] = [];
-          map.data.forEach((feature) => {
-            const bounds = new google.maps.LatLngBounds();
-            feature
-              .getGeometry()
-              ?.forEachLatLng((latLng: google.maps.LatLng) => {
-                bounds.extend(latLng);
-              });
-            const center = bounds.getCenter();
-            const postnummer = feature.getProperty('postnummer') as string;
-            const marker = new google.maps.Marker({
-              position: center,
-              map: mapRef.current,
-              label: {
-                text: postnummer,
-                color: 'black',
-                fontSize: '14px',
-                fontWeight: 'bold',
-              },
-              icon: 'http://maps.google.com/mapfiles/ms/micons/blank.png', // Blank icon to avoid default markers
-              visible: false, // Initially set markers to not visible
+        google.maps.event.clearListeners(map.data, 'click');
+        map.data.addListener('click', (event: google.maps.Data.MouseEvent) => {
+          const postcode = event.feature.getProperty('postnummer') as string;
+          map.data.revertStyle();
+          if (postcode === selectedPostcodeRef.current) {
+            setSelectedPostcode(null);
+          } else {
+            setSelectedPostcode(postcode);
+            setFilterView(false);
+            map.data.overrideStyle(event.feature, {
+              fillColor: 'DarkGray',
+              fillOpacity: 0.3,
+              zIndex: 2,
             });
-
-            newMarkers.push(marker);
-          });
-
-          setMarkers(newMarkers);
-        }, 500); // Adjust the delay time as needed
+          }
+        });
       } catch (error) {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters, city]);
+  }, [geoJsonData, isMapLoaded]);
 
   useEffect(() => {
-    const map = mapRef.current;
-    if (map) {
-      const handleZoomChange = () => {
-        const zoom = map.getZoom();
-        if (!zoom) return;
-        markers.forEach((marker) => {
-          marker.setMap(zoom >= ZOOM_THRESHOLD ? map : null);
-        });
-      };
-
-      const updateMarkersVisibility = () => {
-        if (!map) return;
-        const bounds = map.getBounds();
-        if (!bounds) return;
-
-        markers.forEach((marker) => {
-          const position = marker.getPosition();
-          const zoom = map.getZoom();
-          if (!zoom) return;
-          if (position) {
-            marker.setVisible(
-              bounds.contains(position) && zoom >= ZOOM_THRESHOLD,
-            );
-          }
-        });
-      };
-
-      // Add zoom change listener
-      const zoomListener = google.maps.event.addListener(
-        map,
-        'zoom_changed',
-        () => {
-          handleZoomChange();
-          updateMarkersVisibility();
-        },
-      );
-
-      // Add bounds change listener to update marker visibility based on viewport
-      const boundsListener = google.maps.event.addListener(
-        map,
-        'bounds_changed',
-        updateMarkersVisibility,
-      );
-
-      // Initial call to set visibility based on the current zoom level and viewport
-      handleZoomChange();
-      updateMarkersVisibility();
-
-      return () => {
-        // Clean up listeners on component unmount
-        google.maps.event.removeListener(zoomListener);
-        google.maps.event.removeListener(boundsListener);
-      };
+    if (mapRef.current && isMapLoaded) {
+      const map = mapRef.current!;
+      map.data.setStyle((feature) => setColor({ feature }));
     }
-  }, [markers]);
-
-  useEffect(() => {
-    const map = mapRef.current;
-    if (map) {
-      // Update mapCenterRef when the map is moved
-      const centerChangeListener = google.maps.event.addListener(
-        map,
-        'center_changed',
-        () => {
-          const center = map.getCenter();
-          if (center) {
-            mapCenterRef.current = { lat: center.lat(), lng: center.lng() };
-          }
-        },
-      );
-
-      return () => {
-        // Clean up the center change listener on unmount
-        google.maps.event.removeListener(centerChangeListener);
-      };
-    }
-  }, []);
+  }, [maxPrice, squareMeters, filters, city, distanceData]);
 
   useEffect(() => {
     const map = mapRef.current;
