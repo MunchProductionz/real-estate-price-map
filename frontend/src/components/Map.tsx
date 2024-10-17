@@ -22,12 +22,8 @@ export default function MapComponent() {
   });
   const mapRef = useRef<google.maps.Map | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const geoJsonAdded = useRef(false); // Flag to track if GeoJSON is already added
 
   function setColor({ feature }: { feature: google.maps.Data.Feature }) {
-    const map = mapRef.current!;
-    map.data.revertStyle(feature);
-
     const averagePrice = feature.getProperty(
       'averagePrice' + squareMeters + 'm2',
     ) as number;
@@ -41,13 +37,11 @@ export default function MapComponent() {
     }
 
     if (nearestLocation) {
-      // Define specific keys using keyof
       const locationKeys: Array<keyof NearestLocation> = [
         'vinmonopolet',
         'shopping_mall',
       ];
 
-      // Iterate over location keys
       for (const location of locationKeys) {
         const travelData = nearestLocation[location].travel_data;
 
@@ -70,98 +64,73 @@ export default function MapComponent() {
         if (!distance || !time) filtered = true;
       }
     }
+
     if (maxPrice > averagePrice && !filtered) {
-      // Affordability check
       if (maxPrice > averagePrice * 1.2) {
-        // 20% buffer for high affordability (potential bidding war)
         return {
-          fillColor: 'RoyalBlue', // #4169E1
+          fillColor: 'RoyalBlue',
           fillOpacity: 0.3,
-          strokeColor: 'MidnightBlue', // #191970
+          strokeColor: 'MidnightBlue',
           strokeWeight: 0.1,
         };
       } else {
         return {
-          fillColor: 'Salmon', // #FA8072
+          fillColor: 'Salmon',
           fillOpacity: 0.3,
-          strokeColor: 'Maroon', // #800000
+          strokeColor: 'Maroon',
           strokeWeight: 0.1,
         };
       }
     } else {
       return {
-        fillColor: 'black', // #000000
+        fillColor: 'black',
         fillOpacity: 0.5,
-        strokeColor: 'black', // #000000
+        strokeColor: 'black',
         strokeWeight: 0.1,
       };
     }
   }
 
   useEffect(() => {
+    console.log(geoJsonData);
+    console.log(mapRef.current);
+    console.log(isMapLoaded);
     if (mapRef.current && geoJsonData && isMapLoaded) {
       try {
-        setTimeout(() => {
-          const map = mapRef.current!;
+        const map = mapRef.current!;
+        map.data.forEach((feature) => {
+          map.data.remove(feature);
+        });
+        map.data.addGeoJson(geoJsonData);
 
-          if (!geoJsonAdded.current) {
-            map.data.addGeoJson(geoJsonData);
-
-            map.data.addListener(
-              'click',
-              (event: google.maps.Data.MouseEvent) => {
-                const postcode = event.feature.getProperty(
-                  'postnummer',
-                ) as string;
-                if (postcode === selectedPostcodeRef.current) {
-                  setSelectedPostcode(null);
-                  map.data.revertStyle();
-                  return;
-                }
-                setSelectedPostcode(postcode);
-                setFilterView(false);
-                map.data.revertStyle();
-                map.data.overrideStyle(event.feature, {
-                  fillColor: 'DarkGray', // #A9A9A9
-                  fillOpacity: 0.3,
-                  zIndex: 2,
-                });
-              },
-            );
-            geoJsonAdded.current = true;
+        google.maps.event.clearListeners(map.data, 'click');
+        map.data.addListener('click', (event: google.maps.Data.MouseEvent) => {
+          const postcode = event.feature.getProperty('postnummer') as string;
+          map.data.revertStyle();
+          if (postcode === selectedPostcodeRef.current) {
+            setSelectedPostcode(null);
+          } else {
+            setSelectedPostcode(postcode);
+            setFilterView(false);
+            map.data.overrideStyle(event.feature, {
+              fillColor: 'DarkGray',
+              fillOpacity: 0.3,
+              zIndex: 2,
+            });
           }
-
-          map.data.setStyle((feature) => {
-            return setColor({ feature });
-          });
-        }, 500); // Adjust the delay time as needed
+        });
       } catch (error) {
         console.error('Error adding GeoJSON to map:', error);
       }
     }
-  }, [geoJsonData, isMapLoaded, maxPrice, squareMeters, filters, city]);
+  }, [geoJsonData, isMapLoaded]);
 
   useEffect(() => {
-    const map = mapRef.current;
-    if (map) {
-      // Update mapCenterRef when the map is moved
-      const centerChangeListener = google.maps.event.addListener(
-        map,
-        'center_changed',
-        () => {
-          const center = map.getCenter();
-          if (center) {
-            mapCenterRef.current = { lat: center.lat(), lng: center.lng() };
-          }
-        },
-      );
-
-      return () => {
-        // Clean up the center change listener on unmount
-        google.maps.event.removeListener(centerChangeListener);
-      };
+    if (mapRef.current && isMapLoaded) {
+      const map = mapRef.current!;
+      map.data.setStyle((feature) => setColor({ feature }));
     }
-  }, []);
+  }, [maxPrice, squareMeters, filters, city, distanceData]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -187,7 +156,9 @@ export default function MapComponent() {
           mapRef.current = map;
           setIsMapLoaded(true);
         }}
-      ></GoogleMap>
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+      </GoogleMap>
     </LoadScript>
   );
 }
