@@ -248,13 +248,13 @@ async def get_market_data_from_post_codes_from_geojson(city: str) -> None:
 async def main():
     
     cities = [
-        # "oslo",
-        # "drammen",
-        # "kristiansand",
-        # "stavanger",
-        # "bergen",
-        # "trondelag",
-        # "bodo",
+        "oslo",
+        "drammen",
+        "kristiansand",
+        "stavanger",
+        "bergen",
+        "trondelag",
+        "bodo",
         "tromso",
     ]
     
