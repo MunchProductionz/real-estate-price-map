@@ -11,3 +11,6 @@ The user's max possible purchase price is calculated with a simple expression th
 - Blue: Can afford
 - Yellow: Can afford, but the user is less than 20% above the average price
 - Gray: Cannot afford
+
+## Limitations
+Current implementation uses static price data, and must be updated to perform periodic retrieval and insertion in a database to be used for today's prices.
